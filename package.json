@@ -10,7 +10,8 @@
     "eslint": "^4.13.1",
     "react": "16.0.0",
     "react-native": "0.51.0",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "babel-jest": "21.2.0",
