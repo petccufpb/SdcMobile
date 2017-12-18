@@ -9,7 +9,13 @@ import {
   Dimensions
 } from 'react-native';
 
-import { changeEmail, changePassword } from '../actions/AuthAction'
+import { changeEmail, changePassword, loginUser } from '../actions/AuthAction'
+
+/*
+  Email teste
+    matheus@sdc.com
+    matheus123
+*/
 
 const cenaLogin = props => {
   const { container, input } = styles;
@@ -17,7 +23,7 @@ const cenaLogin = props => {
     <View style={container}>
       <Text>
         Mockup Login
-        </Text>
+      </Text>
       <TextInput
         style={input}
         placeholder="Email"
@@ -32,11 +38,15 @@ const cenaLogin = props => {
         secureTextEntry
       />
       <Button
-        onPress={() => false}
+        onPress={() => props.loginUser(props.email, props.password)}
+        disabled={(props.email && props.password) ? false : true}
         title="Entrar"
         color="steelblue"
         accessibilityLabel="Entrar no aplicativo a partir do e-mail e senha"
       />
+      <Text>
+        {props.loginError}
+      </Text>
     </View>
   );
 }
@@ -57,7 +67,8 @@ const styles = StyleSheet.create({
 
 mapStateToProps = state => ({
   email: state.AuthReducer.email,
-  password: state.AuthReducer.password
+  password: state.AuthReducer.password,
+  loginError: state.AuthReducer.loginError
 })
 
-export default connect(mapStateToProps, { changeEmail, changePassword })(cenaLogin);
+export default connect(mapStateToProps, { changeEmail, changePassword, loginUser })(cenaLogin);

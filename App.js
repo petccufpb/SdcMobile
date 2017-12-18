@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import { View } from 'react-native';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 
 import reducers from './src/reducers';
 import { configFirebase } from './src/util';
 import CenaLogin from './src/views/CenaLogin';
 
-export default class App extends Component<{}> {
+export default class App extends Component {
 
   componentWillMount() {    
     firebase.initializeApp(configFirebase);    
@@ -16,7 +16,7 @@ export default class App extends Component<{}> {
 
   render() {
     return (
-      <Provider store={createStore(reducers)}>
+      <Provider store={createStore(reducers, {}, applyMiddleware(thunk))}>
         <CenaLogin />
       </Provider>
     );
