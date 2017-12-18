@@ -6,6 +6,7 @@ import { View } from 'react-native';
 
 import reducers from './src/reducers';
 import { configFirebase } from './src/util';
+import CenaLogin from './src/views/CenaLogin';
 
 export default class App extends Component<{}> {
 
@@ -16,7 +17,7 @@ export default class App extends Component<{}> {
   render() {
     return (
       <Provider store={createStore(reducers)}>
-        <View></View>
+        <CenaLogin />
       </Provider>
     );
   }

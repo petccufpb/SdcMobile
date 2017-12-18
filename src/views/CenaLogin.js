@@ -1,0 +1,63 @@
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import {
+  View,
+  TextInput,
+  Button,
+  Text,
+  StyleSheet,
+  Dimensions
+} from 'react-native';
+
+import { changeEmail, changePassword } from '../actions/AuthAction'
+
+const cenaLogin = props => {
+  const { container, input } = styles;
+  return (
+    <View style={container}>
+      <Text>
+        Mockup Login
+        </Text>
+      <TextInput
+        style={input}
+        placeholder="Email"
+        onChangeText={email => props.changeEmail(email)}
+        value={props.email}
+      />
+      <TextInput
+        style={input}
+        placeholder="Password"
+        onChangeText={password => props.changePassword(password)}
+        value={props.password}
+        secureTextEntry
+      />
+      <Button
+        onPress={() => false}
+        title="Entrar"
+        color="steelblue"
+        accessibilityLabel="Entrar no aplicativo a partir do e-mail e senha"
+      />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "column",
+    backgroundColor: "powderblue"
+  },
+  input: {
+    height: 40,
+    width: Dimensions.get("window").width * .8
+  }
+});
+
+mapStateToProps = state => ({
+  email: state.AuthReducer.email,
+  password: state.AuthReducer.password
+})
+
+export default connect(mapStateToProps, { changeEmail, changePassword })(cenaLogin);
