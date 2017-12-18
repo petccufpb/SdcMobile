@@ -5,6 +5,7 @@
  */
 
 import React, { Component } from 'react';
+import firebase from 'firebase';
 import {
   Platform,
   StyleSheet,
@@ -20,6 +21,19 @@ const instructions = Platform.select({
 });
 
 export default class App extends Component<{}> {
+  
+  componentWillMount() {
+    var config = {
+      apiKey: "AIzaSyCWXShI69zLyOOPNE06TJezi1-wHvJ_2GE",
+      authDomain: "sdcmobile-6d30d.firebaseapp.com",
+      databaseURL: "https://sdcmobile-6d30d.firebaseio.com",
+      projectId: "sdcmobile-6d30d",
+      storageBucket: "sdcmobile-6d30d.appspot.com",
+      messagingSenderId: "384566825636"
+    };
+    firebase.initializeApp(config);
+  }
+  
   render() {
     return (
       <View style={styles.container}>
