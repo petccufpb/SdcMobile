@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
+import Icon from 'react-native-vector-icons/Entypo';
+
+import { mainColor } from '../util';
 
 export default class CourseScreen extends Component {
   constructor(props) {
@@ -8,7 +11,10 @@ export default class CourseScreen extends Component {
 
   static navigationOptions = {
     title: 'Minicursos',
-    // headerLeft: null
+    drawerLabel: 'Minicursos',
+    drawerIcon: () => (
+      <Icon name="code" size={20} color={mainColor}/>
+    )
   }
 
   render() {

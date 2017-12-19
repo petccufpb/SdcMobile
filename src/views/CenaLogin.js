@@ -47,6 +47,11 @@ const cenaLogin = props => {
       <Text>
         {props.loginError}
       </Text>
+      <Text
+          style={styles.linky}
+          onPress={() => props.navigation.navigate('drawerNav')} >
+          Pretend we logged in
+      </Text>
     </View>
   );
 }
