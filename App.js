@@ -6,10 +6,9 @@ import thunk from 'redux-thunk';
 
 import reducers from './src/reducers';
 import { configFirebase } from './src/util';
-import CenaLogin from './src/views/CenaLogin';
+import ReduxNavigation from './src/navigation/ReduxNavigation';
 
 export default class App extends Component {
-
   componentWillMount() {    
     firebase.initializeApp(configFirebase);    
   }
@@ -17,7 +16,7 @@ export default class App extends Component {
   render() {
     return (
       <Provider store={createStore(reducers, {}, applyMiddleware(thunk))}>
-        <CenaLogin />
+        <ReduxNavigation />
       </Provider>
     );
   }
