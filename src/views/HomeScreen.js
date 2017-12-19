@@ -7,7 +7,7 @@ export default class HomeScreen extends Component {
   }
 
   static navigationOptions = {
-    title: 'Semana da Computação',
+    title: 'Programação',
     // headerLeft: null
   }
 
