@@ -1,5 +1,9 @@
-import { StackNavigator, DrawerNavigator } from "react-navigation";
+import React from 'react';
+import { StackNavigator, DrawerNavigator, } from "react-navigation";
 import { Animated, Easing } from 'react-native';
+
+import { SideMenu } from './components/';
+import { mainColor } from '../util';
 import {
   LoginStack,
   HomeStack,
@@ -7,26 +11,40 @@ import {
 } from './stacks';
 
 /* 
-  Drawer Stack 
+  Drawer Nav 
   Aqui fica as cenas do side menu
 */
-const DrawerNav = DrawerNavigator(
-  {
-    home: { screen: HomeStack },
-    course: { screen: CourseStack },
-  }
-);
+const DrawerNav = DrawerNavigator({
+  home: { 
+    screen: HomeStack 
+  },
+  course: { 
+    screen: CourseStack 
+  },
+}, 
+{ // Config do drawer
+  drawerOpenRoute: 'DrawerOpen',
+  drawerCloseRoute: 'DrawerClose',
+  drawerToggleRoute: 'DrawerToggle',
+  headerMode: 'none',
+  drawerWidth: 300,
+  contentOptions: {
+    activeTintColor: mainColor,
+    inactiveTintColor: 'gray'
+  },
+  contentComponent: SideMenu
+});
 
 /* Fix bug: gesture voltava para tela de login */
 const DrawerStack = StackNavigator({
   drawerNav: { screen: DrawerNav }
-},
-  {
-  headerMode: 'none',
-  navigationOptions: {
-    gesturesEnabled: false,
+}, {
+    headerMode: 'none',
+    navigationOptions: {
+      gesturesEnabled: false,
+    }
   }
-});
+);
 
 /* Corrige bug visual quando passa da loginStack -> drawerNav */
 const noTransitionConfig = () => ({
