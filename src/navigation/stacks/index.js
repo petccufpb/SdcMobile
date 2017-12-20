@@ -2,8 +2,15 @@
  * @description export de todas as stacks do sistema
  */
 
- import CourseStack from './CourseStack';
- import HomeStack from './HomeStack';
- import LoginStack from './LoginStack';
-
- export { HomeStack, CourseStack, LoginStack };
+ export { AboutStack } from './AboutStack';
+ export { CheckinStack } from './CheckinStack';
+ export { CiMapStack } from './CiMapStack';
+ export { CourseStack } from './CourseStack';
+ export { FaqStack } from './FaqStack';
+ export { FindUsStack } from './FindUsStack';
+ export { GameDayStack } from './GameDayStack';
+ export { HomeStack } from './HomeStack';
+ export { LoginStack } from './LoginStack';
+ export { ProgCompetitionStack } from './ProgCompetitionStack';
+ export { SettingsStack } from './SettingsStack';
+ export { TalkStack } from './TalkStack';

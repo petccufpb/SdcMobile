@@ -5,9 +5,18 @@ import { Animated, Easing } from 'react-native';
 import { SideMenu } from './components/';
 import { mainColor } from '../util';
 import {
-  LoginStack,
+  AboutStack,
+  CheckinStack,
+  CiMapStack,
+  CourseStack,
+  FaqStack,
+  FindUsStack,
+  GameDayStack,
   HomeStack,
-  CourseStack
+  LoginStack,
+  ProgCompetitionStack,
+  SettingsStack,
+  TalkStack
 } from './stacks';
 
 /* 
@@ -15,12 +24,17 @@ import {
   Aqui fica as cenas do side menu
 */
 const DrawerNav = DrawerNavigator({
-  home: { 
-    screen: HomeStack 
-  },
-  course: { 
-    screen: CourseStack 
-  },
+  home: { screen: HomeStack },
+  talk: { screen: TalkStack },
+  course: { screen: CourseStack },
+  progcompetition: { screen: ProgCompetitionStack },
+  gameday: { screen: GameDayStack },
+  checkin: { screen: CheckinStack },
+  cimap: { screen: CiMapStack },
+  findus: { screen: FindUsStack },
+  faq: { screen: FaqStack },
+  about: { screen: AboutStack },
+  settings: { screen: SettingsStack },
 }, 
 { // Config do drawer
   drawerOpenRoute: 'DrawerOpen',
