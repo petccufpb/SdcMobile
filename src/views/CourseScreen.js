@@ -12,8 +12,8 @@ export default class CourseScreen extends Component {
   static navigationOptions = {
     title: 'Minicursos',
     drawerLabel: 'Minicursos',
-    drawerIcon: () => (
-      <Icon name="code" size={20} color={mainColor}/>
+    drawerIcon: ({focused, tintColor}) => (
+      <Icon name="code" size={20} color={focused ? mainColor : 'gray'}/>
     )
   }
 

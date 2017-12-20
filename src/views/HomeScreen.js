@@ -12,8 +12,8 @@ export default class HomeScreen extends Component {
   static navigationOptions = {
     title: 'Programação',
     drawerLabel: 'Programação',
-    drawerIcon: () => (
-      <Icon name="calendar" size={20} color={mainColor}/>
+    drawerIcon: ({focused, tintColor}) => (
+      <Icon name="calendar" size={20} color={focused ? mainColor : 'gray'}/>
     )
   }
 
