@@ -13,9 +13,20 @@ import {
 const DrawerNav = DrawerNavigator(
   {
     home: { screen: HomeStack },
-    course: { screen: CourseStack }
+    course: { screen: CourseStack },
   }
 );
+
+/* Fix bug: gesture voltava para tela de login */
+const DrawerStack = StackNavigator({
+  drawerNav: { screen: DrawerNav }
+},
+  {
+  headerMode: 'none',
+  navigationOptions: {
+    gesturesEnabled: false,
+  }
+});
 
 /* Corrige bug visual quando passa da loginStack -> drawerNav */
 const noTransitionConfig = () => ({
@@ -29,13 +40,14 @@ const noTransitionConfig = () => ({
 /* Main Navigation */
 const PrimaryNav = StackNavigator({
   loginStack: { screen: LoginStack },
-  drawerNav: { screen: DrawerNav }
+  drawerStack: { screen: DrawerStack }
 }, {
     // Default config for all screens
     headerMode: 'none',
     title: 'Main',
     initialRouteName: 'loginStack',
-    transitionConfig: noTransitionConfig
-  });
+    transitionConfig: noTransitionConfig,
+  }
+);
 
 export default PrimaryNav;
