@@ -8,6 +8,7 @@ import {
   StyleSheet,
   Dimensions
 } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { changeEmail, changePassword, loginUser } from '../actions/AuthAction'
 
@@ -47,11 +48,9 @@ const cenaLogin = props => {
       <Text>
         {props.loginError}
       </Text>
-      <Text
-          style={styles.linky}
-          onPress={() => props.navigation.navigate('drawerNav')} >
-          Pretend we logged in
-      </Text>
+      <Icon.Button name="facebook" backgroundColor="#3b5998" onPress={() => false}>
+        Entrar com Facebook
+      </Icon.Button>
     </View>
   );
 }
