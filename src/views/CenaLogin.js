@@ -38,6 +38,10 @@ const cenaLogin = props => {
         value={props.password}
         secureTextEntry
       />
+      {/** 
+        @todo @alvesmarcos Ao clicar em entrar, desabilitar o botao e 
+        colocar algum tipo de feedback de progresso.
+      */}
       <Button
         onPress={() => props.loginUser(props.email, props.password)}
         disabled={(props.email && props.password) ? false : true}
