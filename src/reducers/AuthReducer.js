@@ -10,8 +10,8 @@ import {
 } from '../actions/types';
 
 const INITIAL_STATE = {
-  email: '',
-  password: '',
+  email: 'matheus@sdc.com',
+  password: 'matheus123',
   loginError: ''
 };
 
