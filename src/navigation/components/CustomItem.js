@@ -3,7 +3,6 @@ import { View, Text, Platform, StyleSheet, SafeAreaView, TouchableOpacity } from
 import Icon from 'react-native-vector-icons/Entypo';
 
 export default props => {
-  console.log(props)
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={() => props.onPress()} delayPressIn={0}>
