@@ -2,18 +2,18 @@ import React from 'react';
 import {
   View,
   Text,
-  StyleSheet
+  StyleSheet,
 } from 'react-native';
 
-import { mainColor, lightGray } from '../../util';
+import LogoutItem from './LogoutItem';
 import { Hr } from '../../components/';
 
 export default props => {
   const { container, txt } = styles;
   return (
     <View style={container}>
-      <Hr color={lightGray}/>
-      <Text style={txt}> Footer </Text>
+      <Hr />
+      <LogoutItem />
     </View>
   );
 };
@@ -23,8 +23,4 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white'
   },
-  txt: {
-    marginTop: 10,
-    color: mainColor
-  }
 });

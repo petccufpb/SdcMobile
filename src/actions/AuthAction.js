@@ -34,8 +34,20 @@ export const loginUser = (email, password) => {
   }
 }
 
+export const logoutUser = () => {
+  return dispatch => {
+    firebase.auth().signOut()
+      .then(dispatch(navToLogin))
+      .catch(err => dispatch({ type: LOGIN_ERR, payload: err.message }));
+  }
+}
+
 const navToHome = NavigationActions.navigate({
   routeName: 'drawerNav',
   params: {},
   action: NavigationActions.navigate({ routeName: 'home' })
+});
+
+const navToLogin = NavigationActions.navigate({
+  routeName: 'loginStack'
 });
