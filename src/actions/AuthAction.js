@@ -82,5 +82,5 @@ const navToHome = NavigationActions.navigate({
 });
 
 const navToLogin = NavigationActions.navigate({
-  routeName: 'loginStack'
+  routeName: 'signOutStack'
 });

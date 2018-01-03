@@ -11,7 +11,7 @@ import SignupScreen from '../../views/SignupScreen';
   Login Stack 
   Obs: this part doesn`t have access to the side menu
 */
-export const LoginStack = StackNavigator({
+export const SignOutStack = StackNavigator({
   login: { screen: CenaLogin },
   signup: { screen: SignupScreen }
   // ...

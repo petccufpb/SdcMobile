@@ -10,7 +10,7 @@
  export { FindUsStack } from './FindUsStack';
  export { GameDayStack } from './GameDayStack';
  export { HomeStack } from './HomeStack';
- export { LoginStack } from './LoginStack';
+ export { SignOutStack } from './SignOutStack';
  export { ProgCompetitionStack } from './ProgCompetitionStack';
  export { SettingsStack } from './SettingsStack';
  export { TalkStack } from './TalkStack';

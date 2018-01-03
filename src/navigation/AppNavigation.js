@@ -13,7 +13,7 @@ import {
   FindUsStack,
   GameDayStack,
   HomeStack,
-  LoginStack,
+  SignOutStack,
   ProgCompetitionStack,
   SettingsStack,
   TalkStack
@@ -60,7 +60,7 @@ const DrawerStack = StackNavigator({
   }
 );
 
-/* Corrige bug visual quando passa da loginStack -> drawerNav */
+/* Corrige bug visual quando passa da signOutStack -> drawerNav */
 const noTransitionConfig = () => ({
   transitionSpec: {
     duration: 0,
@@ -71,13 +71,13 @@ const noTransitionConfig = () => ({
 
 /* Main Navigation */
 const PrimaryNav = StackNavigator({
-  loginStack: { screen: LoginStack },
+  signOutStack: { screen: SignOutStack },
   drawerStack: { screen: DrawerStack }
 }, {
     // Default config for all screens
     headerMode: 'none',
     title: 'Main',
-    initialRouteName: 'loginStack',
+    initialRouteName: 'signOutStack',
     transitionConfig: noTransitionConfig,
   }
 );
