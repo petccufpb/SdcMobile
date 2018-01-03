@@ -5,6 +5,7 @@
 import { StackNavigator } from "react-navigation";
 
 import CenaLogin from '../../views/CenaLogin';
+import SignupScreen from '../../views/SignupScreen';
 
 /* 
   Login Stack 
@@ -12,7 +13,8 @@ import CenaLogin from '../../views/CenaLogin';
 */
 export const LoginStack = StackNavigator({
   login: { screen: CenaLogin },
-  // signupScreen, ...
+  signup: { screen: SignupScreen }
+  // ...
 }, {
   // Setup
   headerMode: 'float',

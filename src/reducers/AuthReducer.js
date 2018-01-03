@@ -3,20 +3,25 @@
  */
 
 import {
+  CHANGE_NAME,
   CHANGE_EMAIL,
   CHANGE_PASSWORD,
   LOGIN_SUCCESSFUL,
-  LOGIN_ERR
+  LOGIN_ERR,
+  CLEAN_FIELDS
 } from '../actions/types';
 
 const INITIAL_STATE = {
-  email: 'matheus@sdc.com',
-  password: 'matheus123',
+  name: '',
+  email: '',
+  password: '',
   loginError: ''
 };
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case CHANGE_NAME:
+      return { ...state, name: action.payload };
     case CHANGE_EMAIL:
       return { ...state, email: action.payload };
     case CHANGE_PASSWORD:
@@ -25,6 +30,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, loginError: action.payload };
     case LOGIN_ERR:
       return { ...state, loginError: action.payload };
+    case CLEAN_FIELDS:
+      return { state: INITIAL_STATE }
     default:
       return state;
   }

@@ -8,28 +8,29 @@ import {
   StyleSheet,
   Dimensions
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { 
+  changeName,
   changeEmail, 
-  changePassword, 
-  loginUser, 
-  cleanFields 
+  changePassword,
+  createUser,
+  loginUser 
 } from '../actions/AuthAction'
+import { User } from '../models/';
 
-/*
-  Email teste
-    matheus@sdc.com
-    matheus123
-*/
-
-const cenaLogin = props => {
+const signupScreen = props => {
   const { container, input } = styles;
   return (
     <View style={container}>
       <Text>
-        Mockup Login
+        Mockup Signup
       </Text>
+      <TextInput
+        style={input}
+        placeholder="Nome"
+        onChangeText={name => props.changeName(name)}
+        value={props.name}
+      />
       <TextInput
         style={input}
         placeholder="Email"
@@ -43,19 +44,9 @@ const cenaLogin = props => {
         value={props.password}
         secureTextEntry
       />
-      {/** 
-        @todo @alvesmarcos Ao clicar em entrar, desabilitar o botao e 
-        colocar algum tipo de feedback de progresso.
-      */}
       <Button
-        onPress={() => props.loginUser(props.email, props.password)}
-        disabled={(props.email && props.password) ? false : true}
-        title="Entrar"
-        color="steelblue"
-        accessibilityLabel="Entrar no aplicativo a partir do e-mail e senha"
-      />
-      <Button 
-        onPress={() => {props.cleanFields(); props.navigation.navigate('signup')}}
+        onPress={() => props.createUser(new User(props.name, props.email), props.password)}
+        disabled={(props.name && props.email && props.password) ? false : true}
         title="Criar conta"
         color="steelblue"
         accessibilityLabel="Criar conta no aplicativo a partir do e-mail e senha"
@@ -63,9 +54,6 @@ const cenaLogin = props => {
       <Text>
         {props.loginError}
       </Text>
-      <Icon.Button name="facebook" backgroundColor="#3b5998" onPress={() => false}>
-        Entrar com Facebook
-      </Icon.Button>
     </View>
   );
 }
@@ -85,14 +73,15 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => ({
+  name: state.AuthReducer.name,
   email: state.AuthReducer.email,
   password: state.AuthReducer.password,
   loginError: state.AuthReducer.loginError
 })
 
 export default connect(mapStateToProps, { 
-  changeEmail, 
-  changePassword, 
-  loginUser,
-  cleanFields
-})(cenaLogin);
+  changeName, 
+  changeEmail,
+  changePassword,
+  createUser
+})(signupScreen);
