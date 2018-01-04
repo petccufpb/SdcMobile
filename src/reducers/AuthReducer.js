@@ -13,8 +13,8 @@ import {
 
 const INITIAL_STATE = {
   name: '',
-  email: '',
-  password: '',
+  email: 'matheus@sdc.com',
+  password: 'matheus123',
   loginError: ''
 };
 
@@ -27,7 +27,7 @@ export default (state = INITIAL_STATE, action) => {
     case CHANGE_PASSWORD:
       return { ...state, password: action.payload };
     case LOGIN_SUCCESSFUL:
-      return { ...state, loginError: action.payload };
+      return { state: INITIAL_STATE };
     case LOGIN_ERR:
       return { ...state, loginError: action.payload };
     case CLEAN_FIELDS:

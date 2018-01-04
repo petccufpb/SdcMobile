@@ -6,7 +6,7 @@ import { StackNavigator } from "react-navigation";
 
 import CenaLogin from '../../views/CenaLogin';
 import SignupScreen from '../../views/SignupScreen';
-
+import { mainColor } from '../../util/';
 /* 
   Login Stack 
   Obs: this part doesn`t have access to the side menu
@@ -19,8 +19,8 @@ export const SignOutStack = StackNavigator({
   // Setup
   headerMode: 'float',
   navigationOptions: {
-    headerStyle: { backgroundColor: '#E73536' },
-    title: 'Você não está logado no app',
+    headerStyle: { backgroundColor: mainColor },
+    title: 'Semana da Computação',
     headerTintColor: 'white',
   }
 });
