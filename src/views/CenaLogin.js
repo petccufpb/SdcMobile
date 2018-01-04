@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import firebase from 'firebase';
+import SplashScreen from 'react-native-splash-screen'
 
 import {
   changeEmail,
@@ -26,75 +27,64 @@ import {
 */
 
 class CenaLogin extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = { loading: false };
-  }
-
   componentWillMount() {
-    this.setState({ loading: true });
     const unsubscribe = firebase.auth().onAuthStateChanged(user => {
-      console.log(user);
       if (user) {
         this.props.navigation.navigate('drawerStack');
       }
-      setTimeout(() => {this.setState({ loading: false });unsubscribe();}, 100);
+      unsubscribe();
+      // Quando verificar se o usuario esta logado ou nao, 
+      // tira splash
+      SplashScreen.hide();
     });
   }
 
   render() {
     const { container, input } = styles;
     const props = this.props;
-    if (this.state.loading) {
-      // Verificando se o usuario esta logado no App
-      return <ActivityIndicator style={container} />;
-    }
-    else {
-      return (
-        <View style={container}>
-          <Text>
-            Mockup Login
+    return (
+      <View style={container}>
+        <Text>
+          Mockup Login
           </Text>
-          <TextInput
-            style={input}
-            placeholder="Email"
-            onChangeText={email => props.changeEmail(email)}
-            value={props.email}
-          />
-          <TextInput
-            style={input}
-            placeholder="Password"
-            onChangeText={password => props.changePassword(password)}
-            value={props.password}
-            secureTextEntry
-          />
-          {/** 
+        <TextInput
+          style={input}
+          placeholder="Email"
+          onChangeText={email => props.changeEmail(email)}
+          value={props.email}
+        />
+        <TextInput
+          style={input}
+          placeholder="Password"
+          onChangeText={password => props.changePassword(password)}
+          value={props.password}
+          secureTextEntry
+        />
+        {/** 
           @todo @alvesmarcos Ao clicar em entrar, desabilitar o botao e 
           colocar algum tipo de feedback de progresso.
           */}
-          <Button
-            onPress={() => props.loginUser(props.email, props.password)}
-            disabled={(props.email && props.password) ? false : true}
-            title="Entrar"
-            color="steelblue"
-            accessibilityLabel="Entrar no aplicativo a partir do e-mail e senha"
-          />
-          <Button
-            onPress={() => { props.cleanFields(); props.navigation.navigate('signup') }}
-            title="Criar conta"
-            color="steelblue"
-            accessibilityLabel="Criar conta no aplicativo a partir do e-mail e senha"
-          />
-          <Text>
-            {props.loginError}
-          </Text>
-          <Icon.Button name="facebook" backgroundColor="#3b5998" onPress={() => false}>
-            Entrar com Facebook
+        <Button
+          onPress={() => props.loginUser(props.email, props.password)}
+          disabled={(props.email && props.password) ? false : true}
+          title="Entrar"
+          color="steelblue"
+          accessibilityLabel="Entrar no aplicativo a partir do e-mail e senha"
+        />
+        <Button
+          onPress={() => { props.cleanFields(); props.navigation.navigate('signup') }}
+          title="Criar conta"
+          color="steelblue"
+          accessibilityLabel="Criar conta no aplicativo a partir do e-mail e senha"
+        />
+        <Text>
+          {props.loginError}
+        </Text>
+        <Icon.Button name="facebook" backgroundColor="#3b5998" onPress={() => false}>
+          Entrar com Facebook
           </Icon.Button>
-        </View>
-      );
-    }
+      </View>
+    );
   }
 }
 
