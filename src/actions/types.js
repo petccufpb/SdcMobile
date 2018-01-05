@@ -7,3 +7,4 @@ export const CHANGE_PASSWORD = 'change-password';
 export const LOGIN_SUCCESSFUL = 'login-successful';
 export const LOGIN_ERR = 'login-err';
 export const CLEAN_FIELDS = 'clean-fields';
+export const INIT_AUTH = 'init_auth';

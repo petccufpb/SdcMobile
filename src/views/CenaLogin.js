@@ -7,11 +7,9 @@ import {
   Text,
   StyleSheet,
   Dimensions,
-  ActivityIndicator
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import firebase from 'firebase';
-import SplashScreen from 'react-native-splash-screen'
+
 
 import {
   changeEmail,
@@ -27,18 +25,6 @@ import {
 */
 
 class CenaLogin extends Component {
-  componentWillMount() {
-    const unsubscribe = firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        this.props.navigation.navigate('drawerStack');
-      }
-      unsubscribe();
-      // Quando verificar se o usuario esta logado ou nao, 
-      // tira splash
-      SplashScreen.hide();
-    });
-  }
-
   render() {
     const { container, input } = styles;
     const props = this.props;
@@ -105,7 +91,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => ({
   email: state.AuthReducer.email,
   password: state.AuthReducer.password,
-  loginError: state.AuthReducer.loginError
+  loginError: state.AuthReducer.loginError,
 })
 
 export default connect(mapStateToProps, {
