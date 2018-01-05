@@ -76,9 +76,7 @@ export const cleanFields = () => {
 }
 
 const navToHome = NavigationActions.navigate({
-  routeName: 'drawerNav',
-  params: {},
-  action: NavigationActions.navigate({ routeName: 'home' })
+  routeName: 'drawerStack'
 });
 
 const navToLogin = NavigationActions.navigate({
