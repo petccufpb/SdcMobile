@@ -5,69 +5,13 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
 import { mainColor } from "../util";
-
-class Monday extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Segunda</Text>
-      </View>
-    );
-  }
-}
-
-class Tuesday extends Component {
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Terça</Text>
-      </View>
-    );
-  }
-}
-
-class Wednesday extends Component {
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Quarta</Text>
-      </View>
-    );
-  }
-}
-
-class Thursday extends Component {
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Quinta</Text>
-      </View>
-    );
-  }
-}
-
-class Friday extends Component {
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Sexta</Text>
-      </View>
-    );
-  }
-}
-
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-});
+import { 
+  Monday,
+  Tuesday,
+  Wednesday,
+  Thursday,
+  Friday
+ } from "./scheduleScreens";
 
 export default TabHome = TabNavigator({
   Monday: {
