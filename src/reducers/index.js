@@ -6,8 +6,10 @@
 
  import AuthReducer from './AuthReducer';
  import NavReducer from './NavReducer';
+ import TalkReducer from "./TalkReducer";
 
  export default combineReducers({
   AuthReducer,
-  NavReducer
+  NavReducer,
+  TalkReducer,
  });

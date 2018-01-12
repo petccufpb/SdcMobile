@@ -1,8 +1,10 @@
 import React from "React";
 import {
+  TouchableOpacity,
   View,
   Text,
   StyleSheet,
+  Alert
 } from "react-native";
 import Entypo from 'react-native-vector-icons/Entypo';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -10,12 +12,13 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { mainColor } from "../util";
 
 /**
- * Props: iconName, title, date
+ * Props: iconName, title, time
  */
 
 export default props => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity onPress={() => Alert.alert(props.title)}>
+      <View style={styles.container}>
       <View style={styles.itemView}>
         <View style={styles.itemView}>
           <Entypo
@@ -25,9 +28,10 @@ export default props => {
           />
           <Text style={styles.txtTitle}>{props.title}</Text>
         </View>
-        <Text style={styles.txtTitle}>{props.date}</Text>
+        <Text style={styles.txtTitle}>{props.time}</Text>
       </View>
     </View>
+    </TouchableOpacity>
   );
 }
 
