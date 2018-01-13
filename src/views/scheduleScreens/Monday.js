@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { ActivityIndicator, Text } from "react-native";
 
-import ScheduleCard from "../../components/ScheduleCard";
+import Card from "../../components/Card";
 import ScheduleHeader from "../../components/ScheduleHeader";
 import ScheduleContent from "../../components/ScheduleContent";
 import ScheduleItem from "../../components/ScheduleItem";
@@ -17,7 +17,7 @@ class Monday extends Component {
 
   render() {
     return (
-      <ScheduleCard>
+      <Card>
         <ScheduleHeader
           iconName="modern-mic"
           title="Dia de Palestras"
@@ -31,7 +31,7 @@ class Monday extends Component {
               <ScheduleItem key={index} iconName={talk.icon} title={talk.title} time={talk.time} />)
           }
         </ScheduleContent>
-      </ScheduleCard>
+      </Card>
     );
   }
 }
