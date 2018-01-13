@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { ActivityIndicator, Text } from "react-native";
 
-import Card from "../../components/Card";
-import ScheduleHeader from "../../components/ScheduleHeader";
-import ScheduleContent from "../../components/ScheduleContent";
-import ScheduleItem from "../../components/ScheduleItem";
+import {
+  Card,
+  ScheduleHeader,
+  ScheduleContent,
+  ScheduleItem
+} from "../../components/";
 
 import { getTalks } from "../../actions/TalkAction";
 
