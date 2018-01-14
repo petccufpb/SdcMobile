@@ -1,35 +1,59 @@
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
-import Icon from 'react-native-vector-icons/Entypo';
+import React, { Component } from "react";
+import { ScrollView } from "react-native";
+import Icon from "react-native-vector-icons/Entypo";
+import { connect } from "react-redux";
 
-import { mainColor } from '../util';
+import { mainColor } from "../util";
+import { getTalks } from "../actions/TalkAction";
+import {
+  Card,
+  TalkCardHeader,
+  TalkCardContent
+} from "../components";
 
-export default class TalkScreen extends Component {
+class TalkScreen extends Component {
   constructor(props) {
     super(props);
+    this.props.getTalks();
   }
 
   static navigationOptions = {
-    title: 'Palestras',
-    drawerLabel: 'Palestras',
-    drawerIcon: ({focused, tintColor}) => (
-      <Icon name="modern-mic" size={20} color={focused ? mainColor : 'gray'}/>
+    title: "Palestras",
+    drawerLabel: "Palestras",
+    drawerIcon: ({ focused, tintColor }) => (
+      <Icon name="modern-mic" size={20} color={focused ? mainColor : "gray"} />
     )
   }
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text> TalkScreen.js </Text>
-      </View>
+      <ScrollView>
+        {
+          this.props.talks.filter(talk => {
+            if (talk.title === "Coffee Break")
+              return false;
+            return true;
+          }).map((talk, index) =>
+            <Card key={index}>
+              <TalkCardHeader speaker={talk.speaker} />
+              <TalkCardContent 
+                imageURL={talk.imageURL} 
+                title={talk.title}
+                date={talk.date}
+                time={talk.time}
+                local={talk.local}
+                description={talk.description}
+              />
+            </Card>
+          )
+        }
+      </ScrollView>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
+const mapStateToProps = state => ({
+  talks: state.TalkReducer.talks
 });
+
+export default connect(mapStateToProps, { getTalks })(TalkScreen);
