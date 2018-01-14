@@ -15,6 +15,6 @@ export default props => {
 
 const styles = StyleSheet.create({
   container: {
-    margin: 20
+    margin: 5
   }
 });
