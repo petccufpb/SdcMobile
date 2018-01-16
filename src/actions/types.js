@@ -10,4 +10,5 @@ export const CLEAN_FIELDS = 'clean-fields';
 export const INIT_AUTH = 'init-auth';
 
 export const GET_TALKS = 'get-talks';
+export const GET_TALKS_SUCCESS = 'get-talks-success';
 export const ERROR_GET_TALKS = 'error-get-talks';

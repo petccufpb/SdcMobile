@@ -5,20 +5,21 @@
 import firebase from 'firebase';
 import {
   GET_TALKS,
-  ERROR_GET_TALKS
+  ERROR_GET_TALKS,
+  GET_TALKS_SUCCESS
 } from './types';
 import { REF_DB_TALKS } from './refDatabase';
 
 export const getTalks = () => {
   let talks = [];
   return dispatch => {
+    dispatch({ type: GET_TALKS, payload: true })
     firebase.database().ref(REF_DB_TALKS).orderByChild("time").once('value', snapshot => {
       snapshot.forEach(childSnapshot => {
-        console.log(childSnapshot.val());
         talks.push(childSnapshot.val());
       });      
     })
-      .then(() => dispatch({ type: GET_TALKS, payload: talks }))
+      .then(() => dispatch({ type: GET_TALKS_SUCCESS, payload: talks }))
       .catch(error => dispatch({ type: ERROR_GET_TALKS, payload: error.message }));
   }
 }

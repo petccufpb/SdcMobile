@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ScrollView } from "react-native";
+import { FlatList, View, Text, ActivityIndicator } from "react-native";
 import Icon from "react-native-vector-icons/Entypo";
 import { connect } from "react-redux";
 
@@ -12,9 +12,12 @@ import {
 } from "../components";
 
 class TalkScreen extends Component {
+
   constructor(props) {
     super(props);
-    this.props.getTalks();
+    if (this.props.talks.length === 0) {
+      this.props.getTalks();
+    }
   }
 
   static navigationOptions = {
@@ -25,35 +28,62 @@ class TalkScreen extends Component {
     )
   }
 
+  renderItem(talk) {    
+    if (talk.title === "Coffee Break")
+      return false;
+    return (
+      <Card>
+        <CardHeader speaker={talk.speaker} />
+        <CardContent
+          imageURL={talk.imageURL}
+          title={talk.title}
+          date={talk.date}
+          time={talk.time}
+          local={talk.local}
+          description={talk.description}
+        />
+      </Card>
+    );
+  }
+
+  renderActivityIndicator() {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center' }}>
+        <ActivityIndicator />
+      </View>
+    );
+  }
+
+  renderList() {
+    if (this.props.talks.length !== 0) {
+      return (
+        <FlatList 
+          data={this.props.talks}
+          extraData={this.props}
+          style={{ flex: 1 }}
+          renderItem={({ item }) => this.renderItem(item)}
+          keyExtractor={(item, index) => index}
+          onRefresh={this.props.getTalks}
+          refreshing={this.props.loading}
+        />
+      );
+    }
+    return this.renderActivityIndicator();
+  }
+
   render() {
     return (
-      <ScrollView>
-        {
-          this.props.talks.filter(talk => {
-            if (talk.title === "Coffee Break")
-              return false;
-            return true;
-          }).map((talk, index) =>
-            <Card key={index}>
-              <CardHeader speaker={talk.speaker} />
-              <CardContent
-                imageURL={talk.imageURL}
-                title={talk.title}
-                date={talk.date}
-                time={talk.time}
-                local={talk.local}
-                description={talk.description}
-              />
-            </Card>
-            )
-        }
-      </ScrollView>
+      <View style={{ flex: 1 }}>
+        {this.props.error ? <Text>{this.props.error}</Text> : this.renderList()}
+      </View>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  talks: state.TalkReducer.talks
+  talks: state.TalkReducer.talks,
+  loading: state.TalkReducer.loading,
+  error: state.TalkReducer.error
 });
 
 export default connect(mapStateToProps, { getTalks })(TalkScreen);
