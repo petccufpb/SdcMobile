@@ -7,8 +7,8 @@ import { mainColor } from "../util";
 import { getTalks } from "../actions/TalkAction";
 import {
   Card,
-  TalkCardHeader,
-  TalkCardContent
+  CardHeader,
+  CardContent
 } from "../components";
 
 class TalkScreen extends Component {
@@ -35,9 +35,9 @@ class TalkScreen extends Component {
             return true;
           }).map((talk, index) =>
             <Card key={index}>
-              <TalkCardHeader speaker={talk.speaker} />
-              <TalkCardContent 
-                imageURL={talk.imageURL} 
+              <CardHeader speaker={talk.speaker} />
+              <CardContent
+                imageURL={talk.imageURL}
                 title={talk.title}
                 date={talk.date}
                 time={talk.time}
@@ -45,7 +45,7 @@ class TalkScreen extends Component {
                 description={talk.description}
               />
             </Card>
-          )
+            )
         }
       </ScrollView>
     );

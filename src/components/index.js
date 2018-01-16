@@ -7,8 +7,8 @@ import Card from "./Card";
 import ScheduleContent from "./ScheduleContent";
 import ScheduleHeader from "./ScheduleHeader";
 import ScheduleItem from "./ScheduleItem";
-import TalkCardHeader from "./TalkCardHeader";
-import TalkCardContent from "./TalkCardContent";
+import CardHeader from "./CardHeader";
+import CardContent from "./CardContent";
 
 export { 
   Hr,
@@ -16,6 +16,6 @@ export {
   ScheduleContent,
   ScheduleHeader,
   ScheduleItem,
-  TalkCardHeader,
-  TalkCardContent
+  CardHeader,
+  CardContent
 };
