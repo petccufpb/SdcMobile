@@ -28,6 +28,9 @@ class ProgCompetitionScreen extends Component {
     if (!this.props.progCompetition) {
       return <ActivityIndicator />;
     }
+    if (this.props.error) {
+      return <Text>{this.props.error}</Text>;
+    }
     return (
       <ScrollView style={{ backgroundColor: "white" }}>
         <View style={styles.container}>
