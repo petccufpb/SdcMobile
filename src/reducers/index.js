@@ -8,10 +8,12 @@
  import NavReducer from "./NavReducer";
  import TalkReducer from "./TalkReducer";
  import ProgCompetitionReducer from "./ProgCompetitionReducer";
+ import GameDayReducer from "./GameDayReducer";
 
  export default combineReducers({
   AuthReducer,
   NavReducer,
   TalkReducer,
+  GameDayReducer,
   ProgCompetitionReducer,
  });

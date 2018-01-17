@@ -15,3 +15,6 @@ export const ERROR_GET_TALKS = "error-get-talks";
 
 export const GET_PROG_COMPETITION = "get-prog-competition";
 export const ERROR_GET_PROG_COMPETITION = "error-get-prog-competition";
+
+export const GET_GAME_DAY = "get-game-day";
+export const ERROR_GET_GAME_DAY = "error-get-game-day";

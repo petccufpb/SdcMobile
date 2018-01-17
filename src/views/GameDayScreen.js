@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import { ScrollView, View, Text, StyleSheet, Button, Linking } from 'react-native';
 import Icon from 'react-native-vector-icons/Entypo';
+import { connect } from "react-redux";
 
-import { mainColor } from '../util';
+import { getGameDay } from "../actions/GameDayAction";
+import { mainColor, buildStringDate } from '../util';
+import { ActivityIndicator } from "../components";
 
-export default class GameDayScreen extends Component {
+class GameDayScreen extends Component {
   constructor(props) {
     super(props);
+    if (!this.props.gameday) {
+      this.props.getGameDay();
+    }
   }
 
   static navigationOptions = {
@@ -18,14 +24,22 @@ export default class GameDayScreen extends Component {
   }
 
   render() {
+    console.log(this.props.gameday)
+    const { about, date, local, time } = this.props.gameday;
+    if (!this.props.gameday) {
+      return <ActivityIndicator />;
+    }
+    if (this.props.error) {
+      return <Text>{this.props.error}</Text>;
+    }
     return (
       <ScrollView style={{ backgroundColor: "white" }}>
         <View style={styles.container}>
           <View style={styles.header}>
             <Icon name="game-controller" size={120} color={mainColor} />
             <Text style={styles.title}>Game Day</Text>
-            <Text style={styles.subtitle}>Sexta - 09/02, às 8:00h</Text>
-            <Text style={styles.subtitle}>Local: </Text>
+            <Text style={styles.subtitle}>{buildStringDate(date, time)}</Text>
+            <Text style={styles.subtitle}>Local: {local}</Text>
           </View>
           <View style={styles.content}>
             <Text style={styles.text}>{about}</Text>
@@ -71,6 +85,9 @@ const styles = StyleSheet.create({
   }
 });
 const urlLol = "http://www.google.com";
-const about = "O game day é o último dia do evento, feito para relaxar e se divertir com a galera! " +
-  "O game day contará com muitas brincadeiras e jogos, além de alguns campeonatos dos jogos mais famosos! " +
-  "Para participar dos campeonatos é necessário realizar sua inscrição com antecedência.";
+
+const mapStateToProps = state => ({
+  gameday: state.GameDayReducer.gameday,
+  error: state.GameDayReducer.error,
+});
+export default connect(mapStateToProps, { getGameDay })(GameDayScreen);
