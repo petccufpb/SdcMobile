@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: mainColor,
-    fontSize: 25,    
+    fontSize: 28,    
   },
   date: {
     color: "gray"
@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
     color: "gray"
   },
   description: {
+    fontSize: 17,
     textAlign: "justify",
     marginBottom: 8
   },

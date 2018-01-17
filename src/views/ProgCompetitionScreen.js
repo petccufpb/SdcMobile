@@ -77,10 +77,12 @@ const styles = StyleSheet.create({
     color: "gray"
   },
   text: {
+    fontSize: 17,
     textAlign: "justify",
   },
   button: {
-    marginTop: 30
+    marginTop: 30,
+    marginBottom: 10
   }
 });
 

@@ -61,11 +61,13 @@ const styles = StyleSheet.create({
     color: 'gray'
   },
   text: {
+    fontSize: 17,
     textAlign: 'justify',
   },
   button: {
     alignItems: 'center',
-    marginTop: 30
+    marginTop: 30,
+    marginBottom: 10
   }
 });
 const urlLol = "http://www.google.com";
