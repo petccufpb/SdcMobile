@@ -3,3 +3,4 @@
  */
 export const REF_DB_USERS = 'users/';
 export const REF_DB_TALKS = 'talks/';
+export const REF_DB_PROG_COMPETITION = 'progCompetition/';
