@@ -19,7 +19,7 @@ class Monday extends Component {
       this.props.getTalks();
     }
   }
-    
+
   renderItem(talk) {
     return (
       <ScheduleItem
@@ -67,7 +67,6 @@ class Monday extends Component {
   }
 
   render() {
-    console.log(this.props.loading)
     return this.renderCard();
   }
 }
