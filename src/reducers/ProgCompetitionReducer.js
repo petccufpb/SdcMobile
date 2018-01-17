@@ -16,7 +16,7 @@ export default (state = INITIAL_STATE, action) => {
 
   switch (action.type) {
     case GET_PROG_COMPETITION:
-      return { ...state, progCompetition: action.payload };
+      return { ...state, progCompetition: action.payload, error: "" };
     case ERROR_GET_PROG_COMPETITION:
       return { ...state, error: action.payload };
     default:
