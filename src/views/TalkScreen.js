@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { FlatList, View, Text, ActivityIndicator } from "react-native";
+import { FlatList, View, Text } from "react-native";
 import Icon from "react-native-vector-icons/Entypo";
 import { connect } from "react-redux";
 
@@ -8,7 +8,8 @@ import { getTalks } from "../actions/TalkAction";
 import {
   Card,
   CardHeader,
-  CardContent
+  CardContent,
+  ActivityIndicator
 } from "../components";
 
 class TalkScreen extends Component {
@@ -47,11 +48,7 @@ class TalkScreen extends Component {
   }
 
   renderActivityIndicator() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center' }}>
-        <ActivityIndicator />
-      </View>
-    );
+    return <ActivityIndicator />;
   }
 
   renderList() {

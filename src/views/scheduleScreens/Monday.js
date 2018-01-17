@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { ActivityIndicator, Text, FlatList, View } from "react-native";
+import { Text, FlatList } from "react-native";
 
 import {
   Card,
   ScheduleHeader,
   ScheduleContent,
-  ScheduleItem
+  ScheduleItem,
+  ActivityIndicator
 } from "../../components/";
 
 import { getTalks } from "../../actions/TalkAction";
@@ -44,11 +45,7 @@ class Monday extends Component {
   }
 
   renderActivityIndicator() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center' }}>
-        <ActivityIndicator />
-      </View>
-    );
+    return <ActivityIndicator />;
   }
 
   renderCard() {

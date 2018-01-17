@@ -9,6 +9,7 @@ import ScheduleHeader from "./ScheduleHeader";
 import ScheduleItem from "./ScheduleItem";
 import CardHeader from "./CardHeader";
 import CardContent from "./CardContent";
+import ActivityIndicator from "./ActivityIndicator";
 
 export { 
   Hr,
@@ -17,5 +18,6 @@ export {
   ScheduleHeader,
   ScheduleItem,
   CardHeader,
-  CardContent
+  CardContent,
+  ActivityIndicator,
 };
