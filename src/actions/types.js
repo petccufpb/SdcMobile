@@ -18,4 +18,5 @@ export const ERROR_GET_PROG_COMPETITION = "error-get-prog-competition";
 
 export const GET_GAME_DAY = "get-game-day";
 export const GET_GAME_DAY_GAMES = "get-game-day-games";
+export const GET_GAME_DAY_GAMES_SUCCESS = "get-game-day-games-success";
 export const ERROR_GET_GAME_DAY = "error-get-game-day";

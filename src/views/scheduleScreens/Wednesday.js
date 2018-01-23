@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Text, FlatList } from "react-native";
+import { Text } from "react-native";
 
 import {
   Card,
