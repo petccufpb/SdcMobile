@@ -12,12 +12,13 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { mainColor } from "../util";
 
 /**
- * Props: iconName, title, time
+ * Props: iconName, title, time, onClick
  */
 
 export default props => {
+  
   return (
-    <TouchableOpacity onPress={() => Alert.alert(props.title)}>
+    <TouchableOpacity onPress={props.onClick}>
       <View style={styles.container}>
       <View style={styles.itemView}>
         <View style={styles.itemView}>
