@@ -13,6 +13,10 @@ export const GET_TALKS = "get-talks";
 export const GET_TALKS_SUCCESS = "get-talks-success";
 export const ERROR_GET_TALKS = "error-get-talks";
 
+export const GET_COURSES = "get-courses";
+export const GET_COURSES_SUCCESS = "get-courses-success";
+export const ERROR_GET_COURSES = "error-get-courses";
+
 export const GET_PROG_COMPETITION = "get-prog-competition";
 export const ERROR_GET_PROG_COMPETITION = "error-get-prog-competition";
 
