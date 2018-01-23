@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Text, FlatList } from "react-native";
+import { Text, FlatList, Linking } from "react-native";
 
 import {
   Card,
@@ -10,6 +10,7 @@ import {
   ActivityIndicator
 } from "../../components/";
 
+import { createAlert } from "../../util";
 import { getGameDay, getGameDayGames } from "../../actions/GameDayAction";
 
 class Friday extends Component {
@@ -22,13 +23,21 @@ class Friday extends Component {
       this.props.getGameDayGames();
     }
   }
-
+  
   renderItem(game) {
     return (
       <ScheduleItem
         iconName={this.props.gameday.icon}
         title={game.name}
-        time={this.props.gameday.time}
+        time={this.props.gameday.time}        
+        onClick={
+          () => createAlert(
+            "Inscrição", 
+            "Deseja abrir o formulário para inscrição?",
+            () => Linking.openURL(game.form),
+            () => false
+          )
+        }
       />
     );
   }
