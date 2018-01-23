@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Text } from "react-native";
+import { Text, Linking } from "react-native";
 
 import {
   Card,
@@ -10,6 +10,7 @@ import {
   ActivityIndicator
 } from "../../components/";
 
+import { createAlert } from "../../util";
 import { getProgCompetition } from "../../actions/ProgCompetitionAction";
 
 class Wednesday extends Component {
@@ -26,6 +27,14 @@ class Wednesday extends Component {
         iconName={this.props.progCompetition.icon}
         title={this.props.progCompetition.title}
         time={this.props.progCompetition.time}
+        onClick={
+          () => createAlert(
+            "Inscrição", 
+            "Deseja abrir o formulário para inscrição?",
+            () => Linking.openURL(this.props.progCompetition.urlForm),
+            () => false
+          )
+        }
       />
     );
   }
