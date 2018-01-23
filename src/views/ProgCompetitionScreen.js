@@ -24,7 +24,11 @@ class ProgCompetitionScreen extends Component {
   }
 
   render() {
-    const { date, time, about, local, urlEdital, urlForm } = this.props.progCompetition;
+    const { 
+      date, time, about, 
+      local, urlEdital, urlForm,
+      title, icon
+    } = this.props.progCompetition;
     if (!this.props.progCompetition) {
       return <ActivityIndicator />;
     }
@@ -35,8 +39,8 @@ class ProgCompetitionScreen extends Component {
       <ScrollView style={{ backgroundColor: "white" }}>
         <View style={styles.container}>
           <View style={styles.header}>
-            <Icon name="medal" size={120} color={mainColor} />
-            <Text style={styles.title}>Maratona de Programação</Text>
+            <Icon name={icon} size={120} color={mainColor} />
+            <Text style={styles.title}>{title}</Text>
             <Text style={styles.subtitle}>{buildStringDate(date, time)}</Text>
             <Text style={styles.subtitle}>Local: {local}</Text>
           </View>

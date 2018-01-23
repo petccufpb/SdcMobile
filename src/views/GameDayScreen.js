@@ -37,7 +37,7 @@ class GameDayScreen extends Component {
   }
 
   render() {    
-    const { about, date, local, time } = this.props.gameday;
+    const { about, date, local, time, title, icon } = this.props.gameday;
 
     if (!this.props.gameday) {
       return <ActivityIndicator />;
@@ -49,8 +49,8 @@ class GameDayScreen extends Component {
       <ScrollView style={{ backgroundColor: "white" }}>
         <View style={styles.container}>
           <View style={styles.header}>
-            <Icon name="game-controller" size={120} color={mainColor} />
-            <Text style={styles.title}>Game Day</Text>
+            <Icon name={icon} size={120} color={mainColor} />
+            <Text style={styles.title}>{title}</Text>
             <Text style={styles.subtitle}>{buildStringDate(date, time)}</Text>
             <Text style={styles.subtitle}>Local: {local}</Text>
           </View>
