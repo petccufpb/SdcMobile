@@ -36,6 +36,14 @@ export const changePassword = text => {
   }
 }
 
+export const loginWithFacebook = () => dispatch => {
+   // TODO
+};
+
+export const loginWithGoogle = () => dispatch => {
+  // TODO
+};
+
 export const loginUser = (email, password) => {
   return dispatch => {
     firebase.auth().signInWithEmailAndPassword(email, password)

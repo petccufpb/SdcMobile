@@ -12,7 +12,7 @@ import {
   INIT_AUTH
 } from '../actions/types';
 
-const INITIAL_STATE = {
+const INITIAL_STATE_DEV = {
   name: '',
   email: 'matheus@sdc.com',
   password: 'matheus123',
@@ -20,7 +20,15 @@ const INITIAL_STATE = {
   authUser: null
 };
 
-export default (state = INITIAL_STATE, action) => {
+const INITIAL_STATE = {
+  name: '',
+  email: '',
+  password: '',
+  loginError: '',
+  authUser: null
+};
+
+export default (state = INITIAL_STATE_DEV, action) => {
   
   switch (action.type) {
     case CHANGE_NAME:

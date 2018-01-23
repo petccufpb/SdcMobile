@@ -4,7 +4,7 @@
 
 import { StackNavigator } from "react-navigation";
 
-import CenaLogin from '../../views/CenaLogin';
+import LoginScreen from '../../views/LoginScreen';
 import SignupScreen from '../../views/SignupScreen';
 import { mainColor } from '../../util/';
 /* 
@@ -12,7 +12,7 @@ import { mainColor } from '../../util/';
   Obs: this part doesn`t have access to the side menu
 */
 export const SignOutStack = StackNavigator({
-  login: { screen: CenaLogin },
+  login: { screen: LoginScreen },
   signup: { screen: SignupScreen }
   // ...
 }, {
