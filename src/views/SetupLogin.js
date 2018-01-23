@@ -10,6 +10,7 @@ import {
   StatusBar,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import { normalizeFontSize } from '../util';
 
 const logoSdc = require('../../assets/images/logo-sem-fundo-branca.png');
 
