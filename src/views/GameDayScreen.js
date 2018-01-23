@@ -3,7 +3,7 @@ import { ScrollView, View, Text, StyleSheet, Button, Linking } from 'react-nativ
 import Icon from 'react-native-vector-icons/Entypo';
 import { connect } from "react-redux";
 
-import { getGameDay } from "../actions/GameDayAction";
+import { getGameDay, getGameDayGames } from "../actions/GameDayAction";
 import { mainColor, buildStringDate } from '../util';
 import { ActivityIndicator } from "../components";
 
@@ -12,6 +12,9 @@ class GameDayScreen extends Component {
     super(props);
     if (!this.props.gameday) {
       this.props.getGameDay();
+    }
+    if (this.props.games.length === 0) {
+      this.props.getGameDayGames();
     }
   }
 
@@ -23,9 +26,19 @@ class GameDayScreen extends Component {
     )
   }
 
-  render() {
-    console.log(this.props.gameday)
+  renderGames() {    
+    return (
+      <View style={styles.button}>
+        {this.props.games.length === 0 ? <ActivityIndicator /> : this.props.games.map((game, index) => 
+          <Button key={index} color={mainColor} onPress={() => Linking.openURL(game.form)} title={game.title} />
+        )}        
+      </View>
+    );
+  }
+
+  render() {    
     const { about, date, local, time } = this.props.gameday;
+
     if (!this.props.gameday) {
       return <ActivityIndicator />;
     }
@@ -43,9 +56,7 @@ class GameDayScreen extends Component {
           </View>
           <View style={styles.content}>
             <Text style={styles.text}>{about}</Text>
-            <View style={styles.button}>
-              <Button color={mainColor} onPress={() => Linking.openURL(urlLol)} title="Participar do Campeonato X1 LOL" />
-            </View>
+            {this.renderGames()}
           </View>
         </View>
       </ScrollView>
@@ -88,6 +99,7 @@ const urlLol = "http://www.google.com";
 
 const mapStateToProps = state => ({
   gameday: state.GameDayReducer.gameday,
+  games: state.GameDayReducer.games,
   error: state.GameDayReducer.error,
 });
-export default connect(mapStateToProps, { getGameDay })(GameDayScreen);
+export default connect(mapStateToProps, { getGameDay, getGameDayGames })(GameDayScreen);
