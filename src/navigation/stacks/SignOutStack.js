@@ -6,12 +6,14 @@ import { StackNavigator } from "react-navigation";
 
 import LoginScreen from '../../views/LoginScreen';
 import SignupScreen from '../../views/SignupScreen';
+import SetupLogin from "../../views/SetupLogin";
 import { mainColor } from '../../util/';
 /* 
   Login Stack 
   Obs: this part doesn`t have access to the side menu
 */
 export const SignOutStack = StackNavigator({
+  setup: { screen: SetupLogin },
   login: { screen: LoginScreen },
   signup: { screen: SignupScreen }
   // ...
