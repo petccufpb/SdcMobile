@@ -17,6 +17,10 @@ export const GET_COURSES = "get-courses";
 export const GET_COURSES_SUCCESS = "get-courses-success";
 export const ERROR_GET_COURSES = "error-get-courses";
 
+export const GET_LABS = "get-labs";
+export const GET_LABS_SUCCESS = "get-labs-success";
+export const ERROR_GET_LABS = "error-get-labs";
+
 export const GET_PROG_COMPETITION = "get-prog-competition";
 export const ERROR_GET_PROG_COMPETITION = "error-get-prog-competition";
 
