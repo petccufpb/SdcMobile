@@ -16,38 +16,45 @@ import { mainColor } from "../util";
  */
 
 export default props => {
-  
+
   return (
     <TouchableOpacity onPress={props.onClick}>
       <View style={styles.container}>
-      <View style={styles.itemView}>
         <View style={styles.itemView}>
-          <Entypo
-            name={props.iconName}
-            size={20}
-            style={{ color: mainColor }}
-          />
-          <Text style={styles.txtTitle}>{props.title}</Text>
+          <View style={styles.itemView}>
+            <Entypo
+              name={props.iconName}
+              size={20}
+              style={{ color: mainColor, alignSelf: 'center' }}
+            />
+            <Text style={styles.txtTitle}>{props.title}</Text>
+          </View>
+          <Text style={styles.txtTime}>{props.time}</Text>
         </View>
-        <Text style={styles.txtTitle}>{props.time}</Text>
       </View>
-    </View>
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     padding: 5,
     marginBottom: 2,
   },
   itemView: {
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
   txtTitle: {
+    flex: 1,
     padding: 3,
     marginLeft: 8,
-    //flex: 1
+  },
+  txtTime: {
+    padding: 3,
+    marginLeft: 8,
+    alignSelf: 'center'
   }
 });
