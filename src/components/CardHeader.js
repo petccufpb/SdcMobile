@@ -33,6 +33,7 @@ export default props => {
 
 const styles = StyleSheet.create({
   txtViewHeader: {
+    flex: 1,
     marginTop: 0,
     marginLeft: 10
   },
@@ -46,7 +47,6 @@ const styles = StyleSheet.create({
     color: "gray"
   },
   header: {
-    flex: 0.2,
     flexDirection: "row",
     marginTop: 5,
     marginBottom: 10,
