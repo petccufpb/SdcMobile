@@ -34,7 +34,7 @@ class TalkScreen extends Component {
       return false;
     return (
       <Card>
-        <CardHeader speaker={talk.speaker} />
+        <CardHeader speakerKey={talk.speaker} />
         <CardContent
           imageURL={talk.imageURL}
           title={talk.title}
