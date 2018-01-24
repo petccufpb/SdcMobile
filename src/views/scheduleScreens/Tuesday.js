@@ -53,7 +53,7 @@ class Tuesday extends Component {
       return (
         <Card>
           <ScheduleHeader
-            iconName="tv"
+            iconName="slideshare"
             title="Dia dos Feras"
             subtitle="Terça-feira 06/02"
           />
