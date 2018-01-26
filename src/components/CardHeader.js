@@ -6,25 +6,36 @@ import {
   Text,
   StyleSheet,
 } from "react-native";
+import firebase from "firebase";
 
+import { REF_DB_SPEAKERS } from "../actions/refDatabase";
 import { ActivityIndicator } from "../components";
-import { getSpeaker } from "../actions/SpeakerAction";
 
 /**
  * Props: mainImageURL, speakerKey
  */
 
-class CardHeader extends Component {
+export default class CardHeader extends Component {
   constructor(props) {
     super(props);
-    if (!this.props.speaker) {
-      this.props.getSpeaker(props.speakerKey)
-    }
+    this.state = { speaker: {}, error: "" };
+    this.getSpeaker(props.speakerKey);
   }
+
+  getSpeaker(speakerID) {
+    firebase.database().ref(REF_DB_SPEAKERS + speakerID).once('value', snapshot => {
+      this.setState({ ...this.state, speaker: snapshot.val() });
+    })
+      .catch(error => dispatch(this.setState({ ...this.state, error })));
+  }
+
   render() {
-    const { name, specialization, imageURL } = this.props.speaker;
-    if (this.props.error) {
-      return <Text>{this.props.error}</Text>
+    const { name, specialization, imageURL } = this.state.speaker;
+    if (this.state.error) {
+      return <Text>{this.state.error}</Text>
+    }
+    if (!this.state.speaker) {
+      return <ActivityIndicator />;
     }
     return (
       <View style={styles.header}>
@@ -37,13 +48,8 @@ class CardHeader extends Component {
           source={{ uri: imageURL }}
         />
         <View style={styles.txtViewHeader}>
-          {
-            this.props.loading ? <ActivityIndicator /> : 
-            <View>
-              <Text style={styles.txtName}>{name}</Text>
-              <Text style={styles.txtSpecialization}>{specialization}</Text>
-            </View>
-          }
+          <Text style={styles.txtName}>{name}</Text>
+          <Text style={styles.txtSpecialization}>{specialization}</Text>
         </View>
       </View>
     );
@@ -77,11 +83,3 @@ const styles = StyleSheet.create({
     borderRadius: 20
   },
 });
-
-const mapStateToProps = state => ({
-  speaker: state.SpeakerReducer.speaker,
-  loading: state.SpeakerReducer.loading,
-  error: state.SpeakerReducer.error
-});
-
-export default connect(mapStateToProps, { getSpeaker })(CardHeader);

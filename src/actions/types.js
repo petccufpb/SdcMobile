@@ -21,10 +21,6 @@ export const GET_LABS = "get-labs";
 export const GET_LABS_SUCCESS = "get-labs-success";
 export const ERROR_GET_LABS = "error-get-labs";
 
-export const GET_SPEAKER = "get-speaker";
-export const GET_SPEAKER_SUCCESS = "get-speaker-success";
-export const ERROR_GET_SPEAKER = "error-get-speaker";
-
 export const GET_PROG_COMPETITION = "get-prog-competition";
 export const ERROR_GET_PROG_COMPETITION = "error-get-prog-competition";
 
