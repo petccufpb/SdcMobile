@@ -11,20 +11,18 @@ const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window'
 
 export default props => {
   return (
-    <ScrollView style={styles.scrollView}>
-      <View style={styles.container}>
-        {props.children}
-      </View>
-    </ScrollView>
+    <View style={styles.container}>
+      {props.children}
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  scrollView: {
-
-  },
   container: {
     flex: 1,
+    flexDirection: 'column', // main axis
+    justifyContent: 'center', // main axis
+    alignItems: 'center', // cross axis
     shadowColor: '#000000',
     shadowOffset: {
       width: 0,

@@ -18,43 +18,37 @@ import { mainColor } from "../util";
 export default props => {
 
   return (
-    <TouchableOpacity onPress={props.onClick}>
-      <View style={styles.container}>
-        <View style={styles.itemView}>
-          <View style={styles.itemView}>
-            <Entypo
-              name={props.iconName}
-              size={20}
-              style={{ color: mainColor, alignSelf: 'center' }}
-            />
-            <Text style={styles.txtTitle}>{props.title}</Text>
-          </View>
-          <Text style={styles.txtTime}>{props.time}</Text>
-        </View>
+    <View style={styles.container}>
+      <Entypo
+        name={props.iconName}
+        size={25}
+        style={{ color: mainColor }}
+      />
+      <View style={styles.info}>
+        <Text style={styles.title} allowFontScaling={false}>{props.title}</Text>
+        <Text style={styles.author} allowFontScaling={false}>{props.time}</Text>
       </View>
-    </TouchableOpacity>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    padding: 5,
-    marginBottom: 2,
-  },
-  itemView: {
-    flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginHorizontal: 10,
   },
-  txtTitle: {
-    flex: 1,
-    padding: 3,
-    marginLeft: 8,
+  info: {
+    flexGrow: 1,
+    marginHorizontal: 18,
+    marginVertical: 10
   },
-  txtTime: {
-    padding: 3,
-    marginLeft: 8,
-    alignSelf: 'center'
-  }
+  title: {
+    fontSize: 16,
+    color: "black",
+  },
+  author: {
+    fontSize: 15,
+    color: 'gray',
+  },
 });

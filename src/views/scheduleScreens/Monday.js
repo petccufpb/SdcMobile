@@ -35,7 +35,7 @@ class Monday extends Component {
       <FlatList
         data={this.props.talks}
         extraData={this.props}
-        style={{ flex: 1 }}
+        style={{ marginTop: 14 }}
         keyExtractor={(item, index) => index}
         renderItem={({ item }) => this.renderItem(item)}
         onRefresh={this.props.getTalks}
