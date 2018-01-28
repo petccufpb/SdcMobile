@@ -16,6 +16,7 @@
     "react-native-image-placeholder": "^1.0.14",
     "react-native-linear-gradient": "^2.4.0",
     "react-native-splash-screen": "^3.0.6",
+    "react-native-timeline-listview": "^0.2.2",
     "react-native-vector-icons": "^4.4.2",
     "react-navigation": "^1.0.0-beta.22",
     "react-redux": "^5.0.6",

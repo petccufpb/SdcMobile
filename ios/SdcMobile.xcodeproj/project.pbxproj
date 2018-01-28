@@ -53,6 +53,8 @@
 		99F5B82C04E8489DAA34EE08 /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4E67B60EDF14BDAB4F171E8 /* libBVLinearGradient.a */; };
 		41BD9C95769C4DB3A42F2619 /* libRCTFBLogin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64A68261C7EB43DC98781E59 /* libRCTFBLogin.a */; };
 		8D81E0C9FA4643EBBFD264EB /* Rancho-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A4498F6B39D44636ABCDC34B /* Rancho-Regular.ttf */; };
+		DD8431A4F9DD432E9B81F0F3 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45E801B5EA6F4730A11164C7 /* Roboto-Light.ttf */; };
+		EF3897401C324739852BE86A /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23510DE31E6A4130ACBD4171 /* Roboto-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -378,6 +380,8 @@
 		25639757A19B4DA9B1E00685 /* RCTFBLogin.xcodeproj */ = {isa = PBXFileReference; name = "RCTFBLogin.xcodeproj"; path = "../node_modules/react-native-facebook-login/RCTFBLogin.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		64A68261C7EB43DC98781E59 /* libRCTFBLogin.a */ = {isa = PBXFileReference; name = "libRCTFBLogin.a"; path = "libRCTFBLogin.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		A4498F6B39D44636ABCDC34B /* Rancho-Regular.ttf */ = {isa = PBXFileReference; name = "Rancho-Regular.ttf"; path = "../assets/fonts/Rancho-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		45E801B5EA6F4730A11164C7 /* Roboto-Light.ttf */ = {isa = PBXFileReference; name = "Roboto-Light.ttf"; path = "../assets/fonts/Roboto-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		23510DE31E6A4130ACBD4171 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; name = "Roboto-Regular.ttf"; path = "../assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -577,6 +581,8 @@
 				6F6CD4B73E58424CADCDC1D0 /* Zocial.ttf */,
 				393567C922C24A749EC34EFD /* Oxygen-Light.ttf */,
 				A4498F6B39D44636ABCDC34B /* Rancho-Regular.ttf */,
+				45E801B5EA6F4730A11164C7 /* Roboto-Light.ttf */,
+				23510DE31E6A4130ACBD4171 /* Roboto-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1155,6 +1161,8 @@
 				3B945BD951BD41E18C9EBE7E /* Zocial.ttf in Resources */,
 				9705992088234818BE040C30 /* Oxygen-Light.ttf in Resources */,
 				8D81E0C9FA4643EBBFD264EB /* Rancho-Regular.ttf in Resources */,
+				DD8431A4F9DD432E9B81F0F3 /* Roboto-Light.ttf in Resources */,
+				EF3897401C324739852BE86A /* Roboto-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

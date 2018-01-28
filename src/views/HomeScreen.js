@@ -1,82 +1,51 @@
-import React, { Component } from "react";
-import { TabNavigator } from "react-navigation";
-import { View, Text, StyleSheet } from "react-native";
+import React, { Component } from 'react';
+import { TabNavigator } from 'react-navigation';
+import { View, Text, StyleSheet } from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { mainColor } from "../util";
-import { 
+import {
   Monday,
   Tuesday,
   Wednesday,
   Thursday,
   Friday
- } from "./scheduleScreens";
+} from "./scheduleScreens";
 
 export default TabHome = TabNavigator({
   Monday: {
     screen: Monday,
     navigationOptions: {
-      tabBarLabel: 'Segunda',
-      tabBarIcon: ({ tintColor, focused }) => (
-        <Entypo //Componente do icone da barra de navegação inferior
-          name="modern-mic"
-          size={26}
-          style={{ color: tintColor }}
-        />
-      ),
+      tabBarLabel: 'Seg',
+    
     }
   },
   Tuesday: {
     screen: Tuesday,
     navigationOptions: {
-      tabBarLabel: 'Terça',
-      tabBarIcon: ({ tintColor, focused }) => (
-        <MaterialCommunityIcons //Componente do icone da barra de navegação inferior
-          name="presentation"
-          size={26}
-          style={{ color: tintColor }}
-        />
-      ),
+      tabBarLabel: 'Ter',
     }
   },
   Wednesday: {
     screen: Wednesday,
     navigationOptions: {
-      tabBarLabel: 'Quarta',
-      tabBarIcon: ({ tintColor, focused }) => (
-        <Entypo //Componente do icone da barra de navegação inferior
-          name="medal"
-          size={26}
-          style={{ color: tintColor }}
-        />
-      ),
+      tabBarLabel: 'Qua',
     }
   },
   Thursday: {
     screen: Thursday,
     navigationOptions: {
-      tabBarLabel: 'Quinta',
-      tabBarIcon: ({ tintColor, focused }) => (
-        <Entypo //Componente do icone da barra de navegação inferior
-          name="code"
-          size={26}
-          style={{ color: tintColor }}
-        />
-      ),
+      tabBarLabel: 'Qui',
     }
   },
   Friday: {
     screen: Friday,
     navigationOptions: {
-      tabBarLabel: 'Sexta',
-      tabBarIcon: ({ tintColor, focused }) => (
-        <Entypo //Componente do icone da barra de navegação inferior
-          name="game-controller"
-          size={26}
-          style={{ color: tintColor }}
-        />
-      ),
+      tabBarLabel: 'Sex',
+      headerTitleStyle: {
+        fontFamily: 'Roboto-Light',
+      },
     }
   },
 }, {
@@ -84,7 +53,15 @@ export default TabHome = TabNavigator({
     swipeEnabled: true,
     animationEnabled: true,
     tabBarOptions: {
-      activeTintColor: mainColor,
+      activeTintColor: 'gray',
+      inactiveTintColor: '#9E9E9E',
+      style: {
+        backgroundColor: '#f5f5f5',
+        elevation: 0,
+      },
+      indicatorStyle: {
+        backgroundColor: 'gray'
+      }
     },
   }
 );

@@ -4,9 +4,9 @@
 
 import { StackNavigator } from "react-navigation";
 
-import SetupLoginScreen from '../../views/LoginScreen';
+import LoginScreen from '../../views/LoginScreen';
 import SignupScreen from '../../views/SignupScreen';
-import SetupLogin from "../../views/SetupLogin";
+import SetupLoginScreen from "../../views/SetupLoginScreen";
 import { mainColor } from '../../util/';
 /* 
   Login Stack 
