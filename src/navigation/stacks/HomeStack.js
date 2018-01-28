@@ -6,6 +6,7 @@ import { StackNavigator } from "react-navigation";
 import Icon from 'react-native-vector-icons/Entypo';
 
 import HomeScreen from "../../views/HomeScreen";
+import ScheduleModalScreen from "../../views/scheduleScreens/ScheduleModalScreen";
 import { mainColor } from "../../util";
 
 const navOptions = ({ navigation }) => ({
@@ -22,7 +23,8 @@ const navOptions = ({ navigation }) => ({
 
 /* Controle de navegacao para o menu Home */
 export const HomeStack = StackNavigator({
-  home: { screen: HomeScreen }
+  home: { screen: HomeScreen },
+  scheduleModal: { screen: ScheduleModalScreen }
 }, {
   navigationOptions: navOptions
 });

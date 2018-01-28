@@ -9,7 +9,6 @@ import {
   ScheduleItem,
   ActivityIndicator
 } from "../../components/";
-
 import { getTalks } from "../../actions/TalkAction";
 
 class Monday extends Component {
@@ -20,6 +19,14 @@ class Monday extends Component {
     }
   }
 
+  openModal(talk) {
+    if (talk.title === "Coffee Break" || talk.title === "Check-in" 
+    || talk.title === "Abertura - Boas-vindas aos feras") 
+      return false;
+    
+    this.props.navigation.navigate("scheduleModal", talk);
+  }
+
   renderItem(talk) {
     return (
       <ScheduleItem
@@ -27,6 +34,7 @@ class Monday extends Component {
         title={talk.title}
         time={talk.time}
         local={talk.local}
+        onClick={() => this.openModal(talk)}
       />
     );
   }
