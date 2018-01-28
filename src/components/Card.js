@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column', // main axis
     justifyContent: 'center', // main axis
-    alignItems: 'center', // cross axis
+    // alignItems: 'center', // cross axis
     shadowColor: '#000000',
     shadowOffset: {
       width: 0,
