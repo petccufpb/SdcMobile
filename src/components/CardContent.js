@@ -37,32 +37,39 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  content: {
-    margin: 5
-  },
-  title: {
-    color: mainColor,
-    fontSize: 28,    
-  },
-  date: {
-    color: "gray"
-  },
-  local: {
-    marginBottom: 8,
-    color: "gray"
-  },
-  description: {
-    fontSize: 17,
-    textAlign: "justify",
-    marginBottom: 8
-  },
   imageView: {
-    flex: 0.8,
+    flex: 1,
     padding: 10,
     alignItems: "center",
     position: "relative",
     backgroundColor: "white",
-    height: 250
+    height: 200
+  },
+  content: {
+    flex: 1,
+    flexGrow: 1,
+    flexDirection: 'column',
+    margin: 10
+  },
+  title: {
+    color: mainColor,
+    fontSize: 25,
+    marginHorizontal: 8,
+  },
+  date: {
+    color: "gray",
+    marginHorizontal: 8,
+  },
+  local: {
+    marginBottom: 8,
+    color: "gray",
+    marginHorizontal: 8,
+  },
+  description: {
+    fontSize: 17,
+    textAlign: "justify",
+    marginHorizontal: 8,
+    marginVertical: 10, 
   },
   image: {
     position: "absolute",
