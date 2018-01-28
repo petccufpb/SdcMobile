@@ -14,7 +14,7 @@ import { normalizeFontSize } from '../util';
 
 const logoSdc = require('../../assets/images/logo-sem-fundo-branca.png');
 
-class SetupLogin extends Component {
+class SetupLoginScreen extends Component {
   static navigationOptions = { header: null };
   
   render() {
@@ -104,4 +104,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SetupLogin;
+export default SetupLoginScreen;

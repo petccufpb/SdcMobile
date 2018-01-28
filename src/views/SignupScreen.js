@@ -70,20 +70,11 @@ class SignupScreen extends Component {
           <View style={styles.containerBotoes}>
             <TouchableOpacity
               style={styles.buttonEntrar}
-              onPress={() => this.props.loginUser(this.props.email, this.props.password)}>
+              onPress={() => this.props.createUser(new User(this.props.name, this.props.email), this.props.password)}
+              disabled={(this.props.name && this.props.email && this.props.password) ? false : true}>
               <Text style={styles.textButtonEntrar}>Cadastrar</Text>
             </TouchableOpacity>
           </View>
-          {/* <Button
-            onPress={() => this.props.createUser(new User(this.props.name, this.props.email), this.props.password)}
-            disabled={(this.props.name && this.props.email && this.props.password) ? false : true}
-            title="Criar conta"
-            color="steelblue"
-            accessibilityLabel="Criar conta no aplicativo a partir do e-mail e senha"
-          />
-          <Text>
-            {this.props.loginError}
-          </Text> */}
         </View>
       </LinearGradient>
     );
