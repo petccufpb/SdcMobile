@@ -4,6 +4,7 @@
 
 import Hr from './Hr';
 import Card from "./Card";
+import ScrollViewCard from "./ScrollViewCard";
 import ScheduleContent from "./ScheduleContent";
 import ScheduleHeader from "./ScheduleHeader";
 import ScheduleItem from "./ScheduleItem";
@@ -20,4 +21,5 @@ export {
   CardHeader,
   CardContent,
   ActivityIndicator,
+  ScrollViewCard
 };
