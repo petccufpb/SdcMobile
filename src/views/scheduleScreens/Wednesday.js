@@ -27,6 +27,7 @@ class Wednesday extends Component {
         iconName={this.props.progCompetition.icon}
         title={this.props.progCompetition.title}
         time={this.props.progCompetition.time}
+        local={this.props.progCompetition.local}
         onClick={
           () => createAlert(
             "Inscrição", 

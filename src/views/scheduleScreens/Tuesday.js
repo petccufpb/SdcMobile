@@ -26,6 +26,7 @@ class Tuesday extends Component {
         iconName={lab.icon}
         title={lab.title}
         time={lab.time}
+        local={lab.local}
       />
     );
   }

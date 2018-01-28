@@ -26,6 +26,7 @@ class Thursday extends Component {
         iconName={course.icon}
         title={course.title}
         time={course.time}
+        local={course.local}
       />
     );
   }

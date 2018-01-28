@@ -29,7 +29,8 @@ class Friday extends Component {
       <ScheduleItem
         iconName={this.props.gameday.icon}
         title={game.name}
-        time={this.props.gameday.time}        
+        time={this.props.gameday.time}
+        local={this.props.gameday.local}
         onClick={
           () => createAlert(
             "Inscrição", 

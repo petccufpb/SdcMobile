@@ -26,6 +26,7 @@ class Monday extends Component {
         iconName={talk.icon}
         title={talk.title}
         time={talk.time}
+        local={talk.local}
       />
     );
   }
