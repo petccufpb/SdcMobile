@@ -16,7 +16,9 @@ import {
   SignOutStack,
   ProgCompetitionStack,
   SettingsStack,
-  TalkStack
+  TalkStack,
+  WhenStack,
+  SpeakerStack
 } from './stacks';
 
 /* 
@@ -25,16 +27,18 @@ import {
 */
 const DrawerNav = DrawerNavigator({
   home: { screen: HomeStack },
-  talk: { screen: TalkStack },
-  course: { screen: CourseStack },
-  progcompetition: { screen: ProgCompetitionStack },
-  gameday: { screen: GameDayStack },
-  checkin: { screen: CheckinStack },
-  cimap: { screen: CiMapStack },
+  when: { screen: WhenStack },
   findus: { screen: FindUsStack },
-  faq: { screen: FaqStack },
+  speaker: { screen: SpeakerStack },
+  // talk: { screen: TalkStack },
+  // course: { screen: CourseStack },
+  // progcompetition: { screen: ProgCompetitionStack },
+  // gameday: { screen: GameDayStack },
+  checkin: { screen: CheckinStack },
+  // cimap: { screen: CiMapStack },
+  // faq: { screen: FaqStack },
   about: { screen: AboutStack },
-  settings: { screen: SettingsStack },
+  // settings: { screen: SettingsStack },
 }, 
 { // Config do drawer
   drawerOpenRoute: 'DrawerOpen',
@@ -43,11 +47,22 @@ const DrawerNav = DrawerNavigator({
   headerMode: 'none',
   drawerWidth: 300,
   contentOptions: {
-    activeTintColor: mainColor,
-    inactiveTintColor: 'gray'
+    activeTintColor: 'white',
+    inactiveTintColor: 'gray',
+    labelStyle: {
+      fontFamily: 'Roboto-Light',
+      fontSize: 20,
+      fontWeight: 'normal',
+    },
+    iconContainerStyle: {
+      width: 40
+    }
   },
+  drawerBackgroundColor: 'rgba(105, 26, 153, 0.95)',
   contentComponent: SideMenu
 });
+
+// rgba(105, 26, 153, 0.9)
 
 /* Fix bug: gesture voltava para tela de login */
 const DrawerStack = StackNavigator({

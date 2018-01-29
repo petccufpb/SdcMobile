@@ -6,7 +6,7 @@ import { logoutUser } from '../../actions/AuthAction';
 
 const logoutItem = props => {
   return (
-    <CustomItem title="Sair" iconName="log-out" onPress={props.logoutUser} />
+    <CustomItem title='Logout' iconName='ios-power-outline' onPress={props.logoutUser} />
   );
 }
 

@@ -3,7 +3,7 @@
  */
 import React from "react";
 import { StackNavigator } from "react-navigation";
-import Icon from 'react-native-vector-icons/Feather';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import HomeScreen from "../../views/HomeScreen";
 import { mainColor } from "../../util";
@@ -15,11 +15,11 @@ const navOptions = ({ navigation }) => ({
     fontWeight: 'normal',
   },
   drawerIcon: ({ focused, tintColor }) => (
-    <Icon name="calendar" size={20} color={focused ? mainColor : 'gray'} />
+    <Icon name='ios-clock-outline' size={40} color={focused ? 'white' : 'gray'} />
   ),
   headerStyle: { backgroundColor: '#fff', elevation: 0 },
   headerTintColor: 'gray',
-  headerLeft: <Icon.Button name="menu" color={'gray'} backgroundColor={'#fff'} onPress={() =>
+  headerLeft: <Icon.Button name="ios-menu-outline" color={'gray'} backgroundColor={'#fff'} onPress={() =>
     navigation.navigate('DrawerToggle')} />,
 });
 

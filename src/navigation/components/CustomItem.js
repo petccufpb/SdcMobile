@@ -1,42 +1,30 @@
 import React from 'react';
 import { View, Text, Platform, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/Entypo';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export default props => {
   return (
-    <View style={styles.container}>
-      <TouchableOpacity onPress={() => props.onPress()} delayPressIn={0}>
-        <SafeAreaView
-          forceInset={{
-            drawerPosition: 'always',
-            vertical: 'never',
-          }}
-        >
-          <View style={styles.item}>
-            <View style={styles.icon}>
-              <Icon name={props.iconName} size={20} color='gray' />
-            </View>
-            <Text style={styles.label}>
-              {props.title}
-            </Text>
-          </View>
-        </SafeAreaView>
-      </TouchableOpacity>
-    </View>
+    <TouchableOpacity onPress={() => props.onPress()} delayPressIn={0}>
+      <View style={styles.item}>
+        <View style={styles.icon}>
+          <Icon name={props.iconName} size={40} color='gray' />
+        </View>
+        <Text style={styles.label}>
+          {props.title}
+        </Text>
+      </View>
+    </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    paddingVertical: 4,
-  },
   item: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   icon: {
     marginHorizontal: 16,
-    width: 24,
+    width: 40,
     alignItems: 'center',
     opacity: 0.62,
     paddingLeft: 2
@@ -50,7 +38,9 @@ const styles = StyleSheet.create({
   },
   label: {
     margin: 16,
-    fontWeight: 'bold',
-    color: 'gray'
+    color: 'gray',
+    fontFamily: 'Roboto-Light',
+    fontSize: 20,
+    fontWeight: 'normal',
   },
 });

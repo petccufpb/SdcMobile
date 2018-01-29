@@ -12,7 +12,6 @@ export default props => {
   const { container, txt } = styles;
   return (
     <View style={container}>
-      <Hr />
       <LogoutItem />
     </View>
   );
@@ -21,6 +20,5 @@ export default props => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white'
   },
 });

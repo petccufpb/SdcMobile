@@ -4,23 +4,23 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import { mainColor } from '../util';
 
-export default class AboutScreen extends Component {
+export default class WhenScreen extends Component {
   constructor(props) {
     super(props);
   }
 
   static navigationOptions = {
-    title: 'Sobre',
-    drawerLabel: 'Sobre',
+    title: 'Quando',
+    drawerLabel: 'Quando',
     drawerIcon: ({ focused, tintColor }) => (
-      <Icon name='ios-information-circle-outline' size={40} color={focused ? 'white' : 'gray'} />
+      <Icon name='ios-calendar-outline' size={40} color={focused ? 'white' : 'gray'} />
     ),
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <Text> AboutScreen.js </Text>
+        <Text>WhenScreen.js</Text>
       </View>
     );
   }

@@ -4,23 +4,23 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import { mainColor } from '../util';
 
-export default class AboutScreen extends Component {
+export default class SpeakerScreen extends Component {
   constructor(props) {
     super(props);
   }
 
   static navigationOptions = {
-    title: 'Sobre',
-    drawerLabel: 'Sobre',
+    title: 'Palestrantes',
+    drawerLabel: 'Palestrantes',
     drawerIcon: ({ focused, tintColor }) => (
-      <Icon name='ios-information-circle-outline' size={40} color={focused ? 'white' : 'gray'} />
+      <Icon name='ios-mic-outline' size={40} color={focused ? 'white' : 'gray'} />
     ),
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <Text> AboutScreen.js </Text>
+        <Text>SpeakerScreen.js</Text>
       </View>
     );
   }

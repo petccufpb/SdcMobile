@@ -14,3 +14,5 @@
  export { ProgCompetitionStack } from './ProgCompetitionStack';
  export { SettingsStack } from './SettingsStack';
  export { TalkStack } from './TalkStack';
+ export { WhenStack } from './WhenStack';
+ export { SpeakerStack } from './SpeakerStack';

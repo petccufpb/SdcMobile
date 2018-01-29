@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
-import Icon from 'react-native-vector-icons/Entypo';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import { mainColor } from '../util';
 
@@ -12,9 +12,9 @@ export default class CheckinScreen extends Component {
   static navigationOptions = {
     title: 'Check-in',
     drawerLabel: 'Check-in',
-    drawerIcon: ({focused, tintColor}) => (
-      <Icon name="check" size={20} color={focused ? mainColor : 'gray'}/>
-    )
+    drawerIcon: ({ focused, tintColor }) => (
+      <Icon name='ios-qr-scanner-outline' size={40} color={focused ? 'white' : 'gray'} />
+    ),
   }
 
   render() {

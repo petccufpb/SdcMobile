@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
-import Icon from 'react-native-vector-icons/Entypo';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import { mainColor } from '../util';
 
@@ -10,11 +10,11 @@ export default class FindUsScreen extends Component {
   }
 
   static navigationOptions = {
-    title: 'Como chegar',
-    drawerLabel: 'Como chegar',
-    drawerIcon: ({focused, tintColor}) => (
-      <Icon name="location-pin" size={20} color={focused ? mainColor : 'gray'}/>
-    )
+    title: 'Onde',
+    drawerLabel: 'Onde',
+    drawerIcon: ({ focused, tintColor }) => (
+      <Icon name='ios-map-outline' size={40} color={focused ? 'white' : 'gray'} />
+    ),
   }
 
   render() {
