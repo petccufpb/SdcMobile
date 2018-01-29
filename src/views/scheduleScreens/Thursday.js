@@ -27,6 +27,7 @@ class Thursday extends Component {
         title={course.title}
         time={course.time}
         local={course.local}
+        onClick={() => this.props.navigation.navigate("scheduleModal", course)}
       />
     );
   }

@@ -15,17 +15,17 @@ export default class ScheduleModalScreen extends Component {
 
   render() {
     const { state } = this.props.navigation;
-    var talk = state.params;
+    var sheduleItem = state.params;
     return (
       <ScrollViewCard>
-        <CardHeader speakerKey={talk.speaker} />
+        <CardHeader speakerKey={sheduleItem.speaker} />
         <CardContent
-          imageURL={talk.imageURL}
-          title={talk.title}
-          date={talk.date}
-          time={talk.time}
-          local={talk.local}
-          description={talk.description}
+          imageURL={sheduleItem.imageURL}
+          title={sheduleItem.title}
+          date={sheduleItem.date}
+          time={sheduleItem.time}
+          local={sheduleItem.local}
+          description={sheduleItem.description}
         />
       </ScrollViewCard>
     );
