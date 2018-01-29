@@ -25,9 +25,11 @@ export default props => {
       </View>
       <View style={styles.content}>
         <Text style={styles.title}>{props.title}</Text>
-        <Text style={styles.date}>{buildStringDate(props.date, props.time)}</Text>
-        <Text style={styles.local}>Local: {props.local}</Text>
-        <Text style={styles.description}>{props.description}</Text>
+        <View style={styles.subinfo}>
+          <Text style={styles.date}>{buildStringDate(props.date, props.time)}</Text>
+          <Text style={styles.local}>Local: {props.local}</Text>
+          <Text style={styles.description}>{props.description}</Text>
+        </View>        
       </View>
     </View>
   );
@@ -49,7 +51,10 @@ const styles = StyleSheet.create({
     flex: 1,
     flexGrow: 1,
     flexDirection: 'column',
-    margin: 10
+    marginVertical: 10
+  },
+  subinfo: {
+    margin: 8,
   },
   title: {
     color: mainColor,
@@ -57,19 +62,15 @@ const styles = StyleSheet.create({
     marginHorizontal: 8,
   },
   date: {
-    color: "gray",
-    marginHorizontal: 8,
+    color: "gray"    
   },
   local: {
-    marginBottom: 8,
-    color: "gray",
-    marginHorizontal: 8,
+    color: "gray"    
   },
   description: {
     fontSize: 17,
     textAlign: "justify",
-    marginHorizontal: 8,
-    marginVertical: 10, 
+    marginTop: 15
   },
   image: {
     position: "absolute",
