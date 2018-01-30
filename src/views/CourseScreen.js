@@ -76,7 +76,7 @@ class CourseScreen extends Component {
             title={"Inscrito!"}
             onPress={
               () => createAlert(
-                "Deseja cancelar sua inscrição?",
+                "Deseja anular sua inscrição?",
                 "",
                 () => this.props.unregisterCourseSubscriber(course),
                 () => false,
@@ -95,10 +95,18 @@ class CourseScreen extends Component {
               () => createNOptionsAlert(
                 "Pagamento",
                 payamentWarning,
-                [            
-                  {text: 'Cancelar', onPress: false},
-                  {text: 'Anular ', onPress: () => this.props.unregisterCourseSubscriber(course)},
-                  {text: 'Pagar', onPress: false},
+                [
+                  { text: 'Voltar', onPress: false },
+                  {
+                    text: 'Anular ', onPress: () => createAlert(
+                      "Deseja anular sua inscrição?",
+                      "",
+                      () => this.props.unregisterCourseSubscriber(course),
+                      () => false,
+                      "Sim"
+                    )
+                  },
+                  { text: 'Pagar', onPress: false },
                 ]
               )
             }
@@ -146,11 +154,11 @@ class CourseScreen extends Component {
         createOkAlert("Ops!", "Voce nao pode se inscrever em minicursos de mesmo horario!", false)
         fail = true;
         return;
-      }      
+      }
     });
     if (!fail) {
       this.props.registerCourseSubscriber(desiredCourse);
-    }    
+    }
   }
 
   renderItem(course) {
@@ -229,8 +237,8 @@ const styles = StyleSheet.create({
 });
 
 const payamentWarning = "Para garantir sua vaga neste minicurso é necessário entregar, " +
-"na bancada do evento, 1kg de alimento não perecível até o dia anterior " +
-"ao seu minicurso!";
+  "na bancada do evento, 1kg de alimento não perecível até o dia anterior " +
+  "ao seu minicurso!";
 
 const mapStateToProps = state => ({
   courses: state.CourseReducer.courses,
