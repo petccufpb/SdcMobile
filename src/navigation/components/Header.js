@@ -1,17 +1,20 @@
 import React from 'react';
 import {
   View,
-  Text,
+  Image,
   StyleSheet
 } from 'react-native';
 
 import { mainColor } from '../../util';
 
 export default props => {
-  const { container, txt } = styles;
   return (
-    <View style={container}>
-      <Text style={txt}> Custom Header </Text>
+    <View style={styles.container}>
+      <Image
+        style={styles.cover}
+        resizeMode='contain'
+        source={require('../../img/logo.png')}
+      />
     </View>
   );
 };
@@ -19,10 +22,12 @@ export default props => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 12,
+    padding: 20,
     backgroundColor: mainColor
   },
-  txt: {
-    color: 'white'
-  }
+  cover: {
+    alignSelf: 'center',
+    width: 80,
+    height: 80
+  },
 });
