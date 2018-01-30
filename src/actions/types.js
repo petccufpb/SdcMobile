@@ -31,3 +31,10 @@ export const GET_GAME_DAY = "get-game-day";
 export const GET_GAME_DAY_GAMES = "get-game-day-games";
 export const GET_GAME_DAY_GAMES_SUCCESS = "get-game-day-games-success";
 export const ERROR_GET_GAME_DAY = "error-get-game-day";
+
+export const GET_USER_CHECKIN = "get-user-checkin";
+export const GET_USER_CHECKIN_SUCCESS = "get-user-checkin-success";
+export const GET_USER_CHECKIN_ERROR = "get-user-checkin-error";
+export const CHECKIN_USER = "user-checkin";
+export const CHECKIN_DAY_ERROR = "checkin-day-error";
+export const TOGGLE_QRCODE_SCANNER = "toggle-qrcode-scanner";
