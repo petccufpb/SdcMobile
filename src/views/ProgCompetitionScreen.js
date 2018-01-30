@@ -3,7 +3,7 @@ import { ScrollView, View, Text, StyleSheet, Button, Linking } from "react-nativ
 import Icon from "react-native-vector-icons/Entypo";
 import { connect } from "react-redux";
 
-import { mainColor, buildStringDate } from "../util";
+import { mainColor, buildStringDate, createAlert } from "../util";
 import { getProgCompetition } from "../actions/ProgCompetitionAction";
 import { ActivityIndicator } from "../components";
 
@@ -47,8 +47,28 @@ class ProgCompetitionScreen extends Component {
           <View style={styles.content}>
             <Text style={styles.text}>{about}</Text>
             <View style={styles.button}>
-              <Button color={mainColor} onPress={() => Linking.openURL(urlEdital)} title="Edital" />
-              <Button color={mainColor} onPress={() => Linking.openURL(urlForm)} title="Participar" />
+              <Button 
+                color={mainColor} 
+                onPress={() => createAlert(
+                  "Edital",
+                  "Deseja abrir o edital?",
+                  () => Linking.openURL(urlEdital),
+                  () => false,
+                  "Sim"
+                )} 
+                title="Edital" 
+              />
+              <Button 
+                color={mainColor} 
+                onPress={() => createAlert(
+                  "Inscrição",
+                  "Deseja abrir o formulário para inscrição?",
+                  () => Linking.openURL(urlEdital),
+                  () => false,
+                  "Sim"
+                )} 
+                title="Participar" 
+              />
             </View>
           </View>
         </View>

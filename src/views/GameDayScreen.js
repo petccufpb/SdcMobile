@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/Entypo';
 import { connect } from "react-redux";
 
 import { getGameDay, getGameDayGames } from "../actions/GameDayAction";
-import { mainColor, buildStringDate } from '../util';
+import { mainColor, buildStringDate, createAlert } from '../util';
 import { ActivityIndicator } from "../components";
 
 class GameDayScreen extends Component {
@@ -26,17 +26,32 @@ class GameDayScreen extends Component {
     )
   }
 
-  renderGames() {    
+  renderGames() {
     return (
       <View style={styles.button}>
-        {this.props.games.length === 0 ? <ActivityIndicator /> : this.props.games.map((game, index) => 
-          <Button key={index} color={mainColor} onPress={() => Linking.openURL(game.form)} title={game.title} />
-        )}        
+        {
+          this.props.games.length === 0
+            ? <ActivityIndicator />
+            : this.props.games.map((game, index) =>
+              <Button
+                key={index}
+                color={mainColor}
+                onPress={() => createAlert(
+                  "Inscrição",
+                  "Deseja abrir o formulário para inscrição?",
+                  () => Linking.openURL(game.form),
+                  () => false,
+                  "Sim"
+                )}
+                title={game.title}
+              />
+            )
+        }
       </View>
     );
   }
 
-  render() {    
+  render() {
     const { about, date, local, time, title, icon } = this.props.gameday;
 
     if (!this.props.gameday) {
