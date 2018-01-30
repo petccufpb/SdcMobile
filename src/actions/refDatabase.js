@@ -10,3 +10,4 @@ export const REF_DB_PROG_COMPETITION = "progCompetition/";
 export const REF_DB_GAME_DAY = "gameday/info/";
 export const REF_DB_GAME_DAY_GAMES = "gameday/games/";
 export const REF_DB_CHECKIN = "checkin/";
+export const REF_DB_TALKS_WEDNESDAY = "talks-wednesday/";

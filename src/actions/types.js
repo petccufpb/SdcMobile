@@ -28,6 +28,9 @@ export const ERROR_GET_LABS = "error-get-labs";
 
 export const GET_PROG_COMPETITION = "get-prog-competition";
 export const ERROR_GET_PROG_COMPETITION = "error-get-prog-competition";
+export const GET_TALKS_WEDNESDAY = "get-talks-wednesday";
+export const GET_TALKS_WEDNESDAY_SUCCESS = "get-talks-wednesday-success";
+export const GET_TALKS_WEDNESDAY_ERROR = "get-talks-wednesday-error";
 
 export const GET_GAME_DAY = "get-game-day";
 export const GET_GAME_DAY_GAMES = "get-game-day-games";

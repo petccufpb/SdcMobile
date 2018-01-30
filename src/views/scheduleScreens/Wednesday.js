@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Text, Linking } from "react-native";
+import { Text, Linking, FlatList } from "react-native";
 
 import {
   Card,
@@ -11,7 +11,7 @@ import {
 } from "../../components/";
 
 import { createAlert } from "../../util";
-import { getProgCompetition } from "../../actions/ProgCompetitionAction";
+import { getProgCompetition, getTalkWednesday } from "../../actions/ProgCompetitionAction";
 
 class Wednesday extends Component {
   constructor(props) {
@@ -19,23 +19,59 @@ class Wednesday extends Component {
     if (!this.props.progCompetition) {
       this.props.getProgCompetition();
     }
+    if (this.props.talks.length === 0) {
+      this.props.getTalkWednesday();
+    }
   }
 
-  renderItem() {
+  openModal(talk) {
+    if (talk.title === "Coffee Break" || talk.title === "Check-in"
+      || talk.title === "Abertura - Boas-vindas aos feras")
+      return false;
+
+    this.props.navigation.navigate("scheduleModal", talk);
+  }
+
+  renderItem(talk) {
+    if (talk.title === "Maratona de Programação") {      
+      return (
+        <ScheduleItem
+          iconName={this.props.progCompetition.icon}
+          title={this.props.progCompetition.title}
+          time={this.props.progCompetition.time}
+          local={this.props.progCompetition.local}
+          onClick={
+            () => createAlert(
+              "Inscrição",
+              "Deseja abrir o formulário para inscrição?",
+              () => Linking.openURL(this.props.progCompetition.urlForm),
+              () => false
+            )
+          }
+        />
+      );
+    }
     return (
       <ScheduleItem
-        iconName={this.props.progCompetition.icon}
-        title={this.props.progCompetition.title}
-        time={this.props.progCompetition.time}
-        local={this.props.progCompetition.local}
-        onClick={
-          () => createAlert(
-            "Inscrição", 
-            "Deseja abrir o formulário para inscrição?",
-            () => Linking.openURL(this.props.progCompetition.urlForm),
-            () => false
-          )
-        }
+        iconName={talk.icon}
+        title={talk.title}
+        time={talk.time}
+        local={talk.local}
+        onClick={() => this.openModal(talk)}
+      />
+    );
+  }
+
+  renderList() {
+    return (
+      <FlatList
+        data={this.props.talks}
+        extraData={this.props}
+        style={{ marginTop: 14 }}
+        keyExtractor={(item, index) => index}
+        renderItem={({ item }) => this.renderItem(item)}
+        onRefresh={this.props.getTalkWednesday}
+        refreshing={this.props.loading}
       />
     );
   }
@@ -54,7 +90,7 @@ class Wednesday extends Component {
             subtitle="Quarta-feira 07/02"
           />
           <ScheduleContent>
-            {this.props.error ? <Text>{this.props.error}</Text> : this.renderItem()}
+            {this.props.error ? <Text>{this.props.error}</Text> : this.renderList()}
           </ScheduleContent>
         </Card>
       );
@@ -72,5 +108,6 @@ const mapStateToProps = state => ({
   progCompetition: state.ProgCompetitionReducer.progCompetition,
   loading: state.ProgCompetitionReducer.loading,
   error: state.ProgCompetitionReducer.error,
+  talks: state.ProgCompetitionReducer.talks
 });
-export default connect(mapStateToProps, { getProgCompetition })(Wednesday);
+export default connect(mapStateToProps, { getProgCompetition, getTalkWednesday })(Wednesday);
