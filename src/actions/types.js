@@ -19,6 +19,8 @@ export const ERROR_GET_COURSES = "error-get-courses";
 export const REGISTER_SUB_SUCCESS = "register-sub-success";
 export const REGISTER_SUB_EXCEEDED = "register-sub-exceeded";
 export const REGISTER_SUB_ERROR = "register-sub-error";
+export const PAYMENT_SUCCESS = "payment-success";
+export const PAYMENT_ERROR = "payment-error";
 
 export const GET_LABS = "get-labs";
 export const GET_LABS_SUCCESS = "get-labs-success";

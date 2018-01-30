@@ -106,7 +106,7 @@ class CourseScreen extends Component {
                       "Sim"
                     )
                   },
-                  { text: 'Pagar', onPress: false },
+                  { text: 'Pagar', onPress: () => this.props.navigation.navigate("payment", course) },
                 ]
               )
             }
