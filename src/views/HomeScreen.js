@@ -32,8 +32,8 @@ export default TabHome = TabNavigator({
     navigationOptions: {
       tabBarLabel: 'Terça',
       tabBarIcon: ({ tintColor, focused }) => (
-        <MaterialCommunityIcons //Componente do icone da barra de navegação inferior
-          name="presentation"
+        <Entypo //Componente do icone da barra de navegação inferior
+          name="slideshare"
           size={26}
           style={{ color: tintColor }}
         />
