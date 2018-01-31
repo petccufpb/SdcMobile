@@ -71,8 +71,8 @@ class PaymentCourseScreen extends Component {
           title="Voltar"
           onPress={
             () => {
-              this.props.navigation.goBack();
               this.props.getCourses();
+              this.props.navigation.goBack();
             }
           }
           color={mainColor}
