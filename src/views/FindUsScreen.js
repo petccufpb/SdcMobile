@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Button, StatusBar } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import MapView, { Marker } from 'react-native-maps';
+import mapStyle from '../../assets/themes/silver';
 
 import { mainColor } from '../util';
 
 export default class FindUsScreen extends Component {
   constructor(props) {
     super(props);
+
+    this.coordinate = { latitude: -7.162287, longitude: -34.817208 };
   }
 
   static navigationOptions = {
@@ -24,7 +28,22 @@ export default class FindUsScreen extends Component {
           backgroundColor='#e0e0e0'
           barStyle='dark-content'
         />
-        <Text> FindUsScreen.js </Text>
+        <MapView
+          style={styles.map}
+          customMapStyle={mapStyle}
+          region={{
+            latitude: -7.162287,
+            longitude: -34.817208,
+            latitudeDelta: 0.015,
+            longitudeDelta: 0.0121,
+          }}
+        >
+          <Marker
+            title='Centro de Informática - UFPB'
+            description='Semana da Computação'
+            coordinate={{ latitude: -7.162287, longitude: -34.817208 }}
+            pinColor='#691a99' />
+        </MapView>
       </View>
     );
   }
@@ -32,8 +51,19 @@ export default class FindUsScreen extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  map: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
 });
