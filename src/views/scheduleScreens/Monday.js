@@ -1,22 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Text, FlatList, View, StatusBar, StyleSheet } from 'react-native';
+import { Text, FlatList, View, StatusBar, StyleSheet, ActivityIndicator } from 'react-native';
 import Timeline from 'react-native-timeline-listview';
-
-import {
-  DrawerLayoutAndroid,
-  Card,
-  ScheduleHeader,
-  ScheduleContent,
-  ScheduleItem,
-  ActivityIndicator
-} from "../../components/";
-
-import { getTalks } from "../../actions/TalkAction";
 
 class Monday extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      renderTimeline: false,
+    }
 
     this.data = [
       { time: '09:00', title: 'Archery Training', description: 'The Beginner Archery and Beginner Crossbow course does not require you to bring any equipment, since everything you need will be provided for the course. ' },
@@ -27,87 +20,44 @@ class Monday extends Component {
     ]
   }
 
-  renderItem(talk) {
-    return (
-      <ScheduleItem
-        iconName={talk.icon}
-        title={talk.title}
-        time={talk.time}
-      />
-    );
-  }
-
-  renderList() {
-    return (
-      <FlatList
-        data={this.props.talks}
-        extraData={this.props}
-        style={{ flex: 1 }}
-        keyExtractor={(item, index) => index}
-        renderItem={({ item }) => this.renderItem(item)}
-        onRefresh={this.props.getTalks}
-        refreshing={this.props.loading}
-      />
-    );
-  }
-
-  renderActivityIndicator() {
-    return <ActivityIndicator />;
-  }
-
-  renderCard() {
-    if (this.props.talks.length !== 0) {
-      return (
-        <Card>
-          <ScheduleHeader
-            iconName="modern-mic"
-            title="Dia de Palestras"
-            subtitle="Segunda-feira 05/02"
-          />
-          <ScheduleContent>
-            {this.props.error ? <Text>{this.props.error}</Text> : this.renderList()}
-          </ScheduleContent>
-        </Card>
-      );
-    }
-    return this.renderActivityIndicator();
-  }
-
-  renderTimeLine() {
-    return (
-      <Timeline
-        style={styles.list}
-        data={this.data}
-        circleSize={20}
-        circleColor='#68efad'
-        lineColor='#68efad'
-        timeContainerStyle={{ minWidth: 52 }}
-        timeStyle={{ textAlign: 'center', backgroundColor: '#691a99', color: 'white', padding: 5, borderRadius: 13 }}
-        descriptionStyle={{ color: 'gray', fontFamily: 'Roboto-Light' }}
-        titleStyle={{ color: 'gray', fontFamily: 'Roboto-Light' }}
-        separatorStyle={{ height: 0.5 }}
-      />
-    );
+  componentDidMount() {
+    setTimeout(() => { this.setState({ renderTimeline: true }) }, 0);
   }
 
   render() {
+    const { renderTimeline } = this.state;
     return (
-        <View style={styles.container}>
-          <StatusBar
-            backgroundColor='#e0e0e0'
-            barStyle='dark-content'
-          />
-          {this.renderTimeLine()}
-        </View>
+      <View style={styles.container}>
+        <StatusBar
+          backgroundColor='#e0e0e0'
+          barStyle='dark-content'
+        />
+        { !renderTimeline &&
+          <View style={{ flex: 1, justifyContent: 'center' }}>
+            <ActivityIndicator />
+          </View>
+        }
+        { renderTimeline &&
+        <Timeline
+          style={styles.list}
+          data={this.data}
+          circleSize={20}
+          circleColor='#68efad'
+          lineColor='#68efad'
+          timeContainerStyle={{ minWidth: 52 }}
+          timeStyle={{ textAlign: 'center', backgroundColor: '#691a99', color: 'white', padding: 5, borderRadius: 13 }}
+          descriptionStyle={{ color: 'gray', fontFamily: 'Roboto-Light' }}
+          titleStyle={{ color: 'gray', fontFamily: 'Roboto-Light' }}
+          separatorStyle={{ height: 0.5 }}
+        />
+        }
+      </View>
     );
   }
 }
 
 
 const mapStateToProps = state => ({
-  talks: state.TalkReducer.talks,
-  error: state.TalkReducer.error,
-  loading: state.TalkReducer.loading
 });
 
 
@@ -122,4 +72,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect(mapStateToProps, { getTalks })(Monday);
+export default connect(mapStateToProps, {})(Monday);

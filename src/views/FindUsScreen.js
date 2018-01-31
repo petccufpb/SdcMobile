@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, Text, StyleSheet, Button, StatusBar } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import { mainColor } from '../util';
@@ -20,6 +20,10 @@ export default class FindUsScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <StatusBar
+          backgroundColor='#e0e0e0'
+          barStyle='dark-content'
+        />
         <Text> FindUsScreen.js </Text>
       </View>
     );

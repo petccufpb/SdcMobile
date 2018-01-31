@@ -73,19 +73,11 @@ class LoginScreen extends Component {
             </Hr>
             <View style={{ flexDirection: 'row' }}>
               <TouchableOpacity
-                style={[styles.buttonFacebookGoogle, { backgroundColor: '#3b5998', marginRight: 5 }]}
+                style={[styles.buttonEntrar, { backgroundColor: '#3b5998' }]}
                 onPress={() => this.props.loginWithFacebook() }>
                 <View style={styles.containerButtonFacebookGoogle}>
                   <Icon name='facebook' color='#fff' size={20} />
                   <Text style={styles.textButtonFacebookGoogle}>Facebook</Text>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={[styles.buttonFacebookGoogle, { backgroundColor: '#d34836', marginLeft: 5 }]}
-                onPress={() => this.props.loginUser(this.props.email, this.props.password)}>
-                <View style={styles.containerButtonFacebookGoogle}>
-                  <Icon name='google' color='#fff' size={20} />
-                  <Text style={styles.textButtonFacebookGoogle}>Google</Text>
                 </View>
               </TouchableOpacity>
             </View>
@@ -150,12 +142,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Oxygen-Light',
     marginVertical: 10,
     paddingHorizontal: 10
-  },
-  buttonFacebookGoogle: {
-    borderRadius: 50, 
-    alignItems: 'center', 
-    justifyContent: 'center', 
-    flex: 0.5, 
   },
   containerButtonFacebookGoogle: {
     flexDirection: 'row',
