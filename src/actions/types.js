@@ -12,6 +12,9 @@ export const INIT_AUTH = "init-auth";
 export const GET_TALKS = "get-talks";
 export const GET_TALKS_SUCCESS = "get-talks-success";
 export const ERROR_GET_TALKS = "error-get-talks";
+export const GET_ALL_TALKS = "get-all-talks";
+export const GET_ALL_TALKS_SUCCESS = "get-all-talks-success";
+export const ERROR_GET_ALL_TALKS = "error-get-all-talks";
 
 export const GET_COURSES = "get-courses";
 export const GET_COURSES_SUCCESS = "get-courses-success";

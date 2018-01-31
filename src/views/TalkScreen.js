@@ -4,7 +4,7 @@ import Icon from "react-native-vector-icons/Entypo";
 import { connect } from "react-redux";
 
 import { mainColor } from "../util";
-import { getTalks } from "../actions/TalkAction";
+import { getAllTalks } from "../actions/TalkAction";
 import {
   Card,
   CardHeader,
@@ -17,7 +17,7 @@ class TalkScreen extends Component {
   constructor(props) {
     super(props);
     if (this.props.talks.length === 0) {
-      this.props.getTalks();
+      this.props.getAllTalks();
     }
   }
 
@@ -62,7 +62,7 @@ class TalkScreen extends Component {
           style={{ flex: 1 }}
           renderItem={({ item }) => this.renderItem(item)}
           keyExtractor={(item, index) => index}
-          onRefresh={this.props.getTalks}
+          onRefresh={this.props.getAllTalks}
           refreshing={this.props.loading}
         />
       );
@@ -80,9 +80,9 @@ class TalkScreen extends Component {
 }
 
 const mapStateToProps = state => ({
-  talks: state.TalkReducer.talks,
+  talks: state.TalkReducer.allTalks,
   loading: state.TalkReducer.loading,
   error: state.TalkReducer.error
 });
 
-export default connect(mapStateToProps, { getTalks })(TalkScreen);
+export default connect(mapStateToProps, { getAllTalks })(TalkScreen);
