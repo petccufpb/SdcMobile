@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
-import { ActivityIndicator, Dimensions, View, Text, StyleSheet, Button, StatusBar } from 'react-native';
+import { Dimensions, View, Text, StyleSheet, Button, StatusBar } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
-
+import Hr from 'react-native-hr-plus';
 import { mainColor } from '../util';
+
+const WIDTH = Dimensions.get('window').width;
 
 export default class WhenScreen extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      renderCelendar: false,
-    }
-  }
-
-  componentDidMount() {
-    setTimeout(() => { this.setState({ renderCelendar: true }) }, 0);
+    this.data = [
+      { date: '05/02/2018', title: 'Palestras', time: '08:00 - 17:30', where: 'Auditório' },
+      { date: '06/02/2018', title: 'Feras', time: '08:00 - 17:30', where: 'Auditório' },
+      { date: '07/02/2018', title: 'Maratona de Programação / Empreendedorismo', time: '08:00 - 17:30', where: 'Auditório' },
+      { date: '08/02/2018', title: 'Minicursos', time: '08:00 - 17:30', where: 'Auditório' },
+      { date: '09/02/2018', title: 'Gameday', time: '08:00 - 17:30', where: 'Auditório' },
+    ];
   }
 
   static navigationOptions = {
@@ -27,39 +28,71 @@ export default class WhenScreen extends Component {
   }
 
   render() {
-    const { renderCelendar } = this.state;
-
     return (
       <View style={styles.container}>
         <StatusBar
           backgroundColor='#e0e0e0'
           barStyle='dark-content'
         />
-        <View style={{ justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }}>
-          <Text style={{ marginVertical: 15, fontFamily: 'Rancho-Regular', fontSize: 25, color: 'gray' }}>Faltam 6 dias</Text>
+        <View style={{ flex: 0.1, justifyContent: 'center' ,backgroundColor: 'gray', flexDirection: 'column' }}>
+          <Text style={{ fontFamily: 'Roboto-Regular', color: '#fff', paddingLeft: 16, fontSize: 18 }}>FEV 2018</Text>
         </View>
-        { !renderCelendar &&
-          <View style={{ flex: 1, justifyContent: 'center' }}>
-            <ActivityIndicator />
+        <View style={{ flex: 0.2, flexDirection: 'row' }}>
+          <View style={{ backgroundColor: '#e0e0e0', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', flex: 0.3 }}>
+            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 35, color: 'gray' }}>11</Text>
+            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 18, color: 'gray' }}>Seg</Text>
           </View>
-        }
-        { renderCelendar &&
-          <CalendarList
-            minDate={'2018-02-01'}
-            maxDate={'2018-02-28'}
-            styles={{ width: Dimensions.get('window').width }}
-            markedDates={
-              {
-                '2018-02-05': { startingDay: true, color: '#691a99', textColor: '#68efad' },
-                '2018-02-06': { selected: true, color: '#691a99', textColor: '#68efad' },
-                '2018-02-07': { selected: true, color: '#691a99', textColor: '#68efad' },
-                '2018-02-08': { selected: true, color: '#691a99', textColor: '#68efad' },
-                '2018-02-09': { disabled: true, color: '#691a99', textColor: '#68efad', endingDay: true }
-              }}
-            // Date marking style [simple/period/multi-dot]. Default = 'simple'
-            markingType={'period'}
-          />
-        }
+          <View style={{ marginLeft: 20, backgroundColor: '#fff', justifyContent: 'center', flexDirection: 'column', flex: 0.7 }}>
+            <Text style={{ fontFamily: 'Roboto-Regular', color: 'gray', fontSize: 18, fontWeight: 'bold' }}>Palestras</Text>
+            <Text style={{ fontFamily: 'Roboto-Regular', color: 'gray' }}>Horário: </Text>
+            <Text style={{ fontFamily: 'Roboto-Regular', color: 'gray' }}>Local: Auditório</Text>
+          </View>
+        </View>
+        <Hr color='#fff' width={1} />
+        <View style={{ flex: 0.2, flexDirection: 'row' }}>
+          <View style={{ backgroundColor: '#e0e0e0', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', flex: 0.3 }}>
+            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 35, color: 'gray' }}>11</Text>
+            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 18, color: 'gray' }}>Seg</Text>
+          </View>
+          <View style={{ marginLeft: 20, backgroundColor: '#fff', justifyContent: 'center', flexDirection: 'column', flex: 0.7 }}>
+            <Text style={{ fontFamily: 'Roboto-Regular', color: 'gray', fontSize: 18, fontWeight: 'bold' }}>Palestras</Text>
+            <Text style={{ fontFamily: 'Roboto-Regular', color: 'gray' }}>Horário: </Text>
+            <Text style={{ fontFamily: 'Roboto-Regular', color: 'gray' }}>Local: Auditório</Text>
+          </View>
+        </View>
+        <Hr color='#fff' width={1} /><View style={{ flex: 0.2, flexDirection: 'row' }}>
+          <View style={{ backgroundColor: '#e0e0e0', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', flex: 0.3 }}>
+            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 35, color: 'gray' }}>11</Text>
+            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 18, color: 'gray' }}>Seg</Text>
+          </View>
+          <View style={{ marginLeft: 20, backgroundColor: '#fff', justifyContent: 'center', flexDirection: 'column', flex: 0.7 }}>
+            <Text style={{ fontFamily: 'Roboto-Regular', color: 'gray', fontSize: 18, fontWeight: 'bold' }}>Palestras</Text>
+            <Text style={{ fontFamily: 'Roboto-Regular', color: 'gray' }}>Horário: </Text>
+            <Text style={{ fontFamily: 'Roboto-Regular', color: 'gray' }}>Local: Auditório</Text>
+          </View>
+        </View>
+        <Hr color='#fff' width={1} /><View style={{ flex: 0.2, flexDirection: 'row' }}>
+          <View style={{ backgroundColor: '#e0e0e0', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', flex: 0.3 }}>
+            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 35, color: 'gray' }}>11</Text>
+            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 18, color: 'gray' }}>Seg</Text>
+          </View>
+          <View style={{ marginLeft: 20, backgroundColor: '#fff', justifyContent: 'center', flexDirection: 'column', flex: 0.7 }}>
+            <Text style={{ fontFamily: 'Roboto-Regular', color: 'gray', fontSize: 18, fontWeight: 'bold' }}>Palestras</Text>
+            <Text style={{ fontFamily: 'Roboto-Regular', color: 'gray' }}>Horário: </Text>
+            <Text style={{ fontFamily: 'Roboto-Regular', color: 'gray' }}>Local: Auditório</Text>
+          </View>
+        </View>
+        <Hr color='#fff' width={1} /><View style={{ flex: 0.2, flexDirection: 'row' }}>
+          <View style={{ backgroundColor: '#e0e0e0', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', flex: 0.3 }}>
+            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 35, color: 'gray' }}>11</Text>
+            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 18, color: 'gray' }}>Seg</Text>
+          </View>
+          <View style={{ marginLeft: 20, backgroundColor: '#fff', justifyContent: 'center', flexDirection: 'column', flex: 0.7 }}>
+            <Text style={{ fontFamily: 'Roboto-Regular', color: 'gray', fontSize: 18, fontWeight: 'bold' }}>Palestras</Text>
+            <Text style={{ fontFamily: 'Roboto-Regular', color: 'gray' }}>Horário: </Text>
+            <Text style={{ fontFamily: 'Roboto-Regular', color: 'gray' }}>Local: Auditório</Text>
+          </View>
+        </View>
       </View>
     );
   }
@@ -68,5 +101,7 @@ export default class WhenScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'column',
+    backgroundColor: '#fff'
   },
 });
