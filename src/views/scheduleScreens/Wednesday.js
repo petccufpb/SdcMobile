@@ -86,7 +86,7 @@ class Wednesday extends Component {
         <Card>
           <ScheduleHeader
             iconName={this.props.progCompetition.icon}
-            title="Dia de Maratona"
+            title="Dia de Palestras e Maratona"
             subtitle="Quarta-feira 07/02"
           />
           <ScheduleContent>

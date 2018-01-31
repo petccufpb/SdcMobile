@@ -31,7 +31,8 @@ class TalkScreen extends Component {
 
   renderItem(talk) {    
     if (talk.title === "Coffee Break" || talk.title === "Check-in" 
-      || talk.title === "Abertura - Boas-vindas aos feras") 
+      || talk.title === "Abertura - Boas-vindas aos feras"
+      || talk.title === "Maratona de Programação") 
       return false;
     return (
       <Card>
