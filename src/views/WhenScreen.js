@@ -61,9 +61,9 @@ export default class WhenScreen extends Component {
           </View>
         </View>
         <Hr color='#fff' width={1} /><View style={{ flex: 0.2, flexDirection: 'row' }}>
-          <View style={{ backgroundColor: '#ffe119', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', flex: 0.3 }}>
-            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 35, color: 'gray' }}>11</Text>
-            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 18, color: 'gray' }}>Seg</Text>
+          <View style={{ backgroundColor: '#911eb4', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', flex: 0.3 }}>
+            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 35, color: 'white' }}>11</Text>
+            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 18, color: 'white' }}>Seg</Text>
           </View>
           <View style={{ marginLeft: 20, backgroundColor: '#fff', justifyContent: 'center', flexDirection: 'column', flex: 0.7 }}>
             <Text style={{ fontFamily: 'Roboto-Regular', color: 'gray', fontSize: 18, fontWeight: 'bold' }}>Palestras</Text>

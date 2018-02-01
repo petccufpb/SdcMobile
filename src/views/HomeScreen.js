@@ -53,14 +53,14 @@ export default TabHome = TabNavigator({
     swipeEnabled: true,
     animationEnabled: true,
     tabBarOptions: {
-      activeTintColor: 'gray',
-      inactiveTintColor: '#9E9E9E',
+      activeTintColor: 'white',
+      inactiveTintColor: '#f5f5f5',
       style: {
-        backgroundColor: '#f5f5f5',
+        backgroundColor: '#212121',
         elevation: 0,
       },
       indicatorStyle: {
-        backgroundColor: 'gray'
+        backgroundColor: 'white'
       }
     },
   }

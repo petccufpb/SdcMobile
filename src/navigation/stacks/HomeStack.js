@@ -17,9 +17,9 @@ const navOptions = ({ navigation }) => ({
   drawerIcon: ({ focused, tintColor }) => (
     <Icon name='ios-clock-outline' size={40} color={focused ? 'white' : 'gray'} />
   ),
-  headerStyle: { backgroundColor: '#fff', elevation: 0 },
-  headerTintColor: 'gray',
-  headerLeft: <Icon.Button name="ios-menu-outline" color={'gray'} backgroundColor={'#fff'} onPress={() =>
+  headerStyle: { backgroundColor: '#212121', elevation: 0 },
+  headerTintColor: 'white',
+  headerLeft: <Icon.Button name='ios-menu-outline' color={'white'} backgroundColor={'#212121'} onPress={() =>
     navigation.navigate('DrawerToggle')} />,
 });
 

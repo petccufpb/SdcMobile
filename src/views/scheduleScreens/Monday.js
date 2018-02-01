@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Text, FlatList, View, StatusBar, StyleSheet, ActivityIndicator } from 'react-native';
+import { Alert, Text, FlatList, View, StatusBar, StyleSheet, ActivityIndicator } from 'react-native';
 import Timeline from 'react-native-timeline-listview';
+import { getTalks } from "../../actions/TalkAction";
 
 class Monday extends Component {
   constructor(props) {
     super(props);
+
+    if (this.props.talks.length === 0) {
+      this.props.getTalks();
+    }
 
     this.state = {
       renderTimeline: false,
@@ -29,47 +34,48 @@ class Monday extends Component {
     return (
       <View style={styles.container}>
         <StatusBar
-          backgroundColor='#e0e0e0'
-          barStyle='dark-content'
+          backgroundColor='#000'
+          barStyle='light-content'
         />
-        { !renderTimeline &&
+        {!renderTimeline &&
           <View style={{ flex: 1, justifyContent: 'center' }}>
             <ActivityIndicator />
           </View>
         }
-        { renderTimeline &&
-        <Timeline
-          style={styles.list}
-          data={this.data}
-          circleSize={20}
-          circleColor='#68efad'
-          lineColor='#68efad'
-          timeContainerStyle={{ minWidth: 52 }}
-          timeStyle={{ textAlign: 'center', backgroundColor: '#691a99', color: 'white', padding: 5, borderRadius: 13 }}
-          descriptionStyle={{ color: 'gray', fontFamily: 'Roboto-Light' }}
-          titleStyle={{ color: 'gray', fontFamily: 'Roboto-Light' }}
-          separatorStyle={{ height: 0.5 }}
-        />
+        {renderTimeline &&
+          <Timeline
+            style={styles.list}
+            data={this.data}
+            circleSize={20}
+            circleColor='#BDBDBD'
+            lineColor='#BDBDBD'
+            timeContainerStyle={{ minWidth: 52 }}
+            timeStyle={{ textAlign: 'center', backgroundColor: '#D500F9', color: 'white', padding: 5, borderRadius: 13 }}
+            descriptionStyle={{ color: 'white', fontFamily: 'Roboto-Light' }}
+            titleStyle={{ color: 'white', fontFamily: 'Roboto-Light' }}
+            separatorStyle={{ height: 0.5 }}
+          />
         }
       </View>
     );
   }
 }
 
-
-const mapStateToProps = state => ({
-});
-
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: 'white'
+    backgroundColor: '#303030'
   },
   list: {
     flex: 1,
   },
 });
 
-export default connect(mapStateToProps, {})(Monday);
+const mapStateToProps = state => ({
+  talks: state.TalkReducer.talks,
+  error: state.TalkReducer.error,
+  loading: state.TalkReducer.loading
+});
+
+export default connect(mapStateToProps, { getTalks })(Monday);
