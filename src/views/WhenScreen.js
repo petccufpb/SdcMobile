@@ -34,13 +34,13 @@ export default class WhenScreen extends Component {
           backgroundColor='#e0e0e0'
           barStyle='dark-content'
         />
-        <View style={{ flex: 0.1, justifyContent: 'center' ,backgroundColor: 'gray', flexDirection: 'column' }}>
-          <Text style={{ fontFamily: 'Roboto-Regular', color: '#fff', paddingLeft: 16, fontSize: 18 }}>FEV 2018</Text>
+        <View style={{ flex: 0.1, justifyContent: 'center' ,backgroundColor: '#e0e0e0', flexDirection: 'column' }}>
+          <Text style={{ fontFamily: 'Roboto-Regular', color: 'gray', paddingLeft: 16, fontSize: 18 }}>FEV 2018</Text>
         </View>
         <View style={{ flex: 0.2, flexDirection: 'row' }}>
-          <View style={{ backgroundColor: '#e0e0e0', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', flex: 0.3 }}>
-            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 35, color: 'gray' }}>11</Text>
-            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 18, color: 'gray' }}>Seg</Text>
+          <View style={{ backgroundColor: '#e6194b', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', flex: 0.3 }}>
+            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 35, color: 'white' }}>11</Text>
+            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 18, color: 'white' }}>Seg</Text>
           </View>
           <View style={{ marginLeft: 20, backgroundColor: '#fff', justifyContent: 'center', flexDirection: 'column', flex: 0.7 }}>
             <Text style={{ fontFamily: 'Roboto-Regular', color: 'gray', fontSize: 18, fontWeight: 'bold' }}>Palestras</Text>
@@ -50,7 +50,18 @@ export default class WhenScreen extends Component {
         </View>
         <Hr color='#fff' width={1} />
         <View style={{ flex: 0.2, flexDirection: 'row' }}>
-          <View style={{ backgroundColor: '#e0e0e0', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', flex: 0.3 }}>
+          <View style={{ backgroundColor: '#3cb44b', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', flex: 0.3 }}>
+            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 35, color: 'white' }}>11</Text>
+            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 18, color: 'white' }}>Seg</Text>
+          </View>
+          <View style={{ marginLeft: 20, backgroundColor: '#fff', justifyContent: 'center', flexDirection: 'column', flex: 0.7 }}>
+            <Text style={{ fontFamily: 'Roboto-Regular', color: 'gray', fontSize: 18, fontWeight: 'bold' }}>Palestras</Text>
+            <Text style={{ fontFamily: 'Roboto-Regular', color: 'gray' }}>Horário: </Text>
+            <Text style={{ fontFamily: 'Roboto-Regular', color: 'gray' }}>Local: Auditório</Text>
+          </View>
+        </View>
+        <Hr color='#fff' width={1} /><View style={{ flex: 0.2, flexDirection: 'row' }}>
+          <View style={{ backgroundColor: '#ffe119', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', flex: 0.3 }}>
             <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 35, color: 'gray' }}>11</Text>
             <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 18, color: 'gray' }}>Seg</Text>
           </View>
@@ -61,9 +72,9 @@ export default class WhenScreen extends Component {
           </View>
         </View>
         <Hr color='#fff' width={1} /><View style={{ flex: 0.2, flexDirection: 'row' }}>
-          <View style={{ backgroundColor: '#e0e0e0', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', flex: 0.3 }}>
-            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 35, color: 'gray' }}>11</Text>
-            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 18, color: 'gray' }}>Seg</Text>
+          <View style={{ backgroundColor: '#0082c8', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', flex: 0.3 }}>
+            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 35, color: 'white' }}>11</Text>
+            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 18, color: 'white' }}>Seg</Text>
           </View>
           <View style={{ marginLeft: 20, backgroundColor: '#fff', justifyContent: 'center', flexDirection: 'column', flex: 0.7 }}>
             <Text style={{ fontFamily: 'Roboto-Regular', color: 'gray', fontSize: 18, fontWeight: 'bold' }}>Palestras</Text>
@@ -72,20 +83,9 @@ export default class WhenScreen extends Component {
           </View>
         </View>
         <Hr color='#fff' width={1} /><View style={{ flex: 0.2, flexDirection: 'row' }}>
-          <View style={{ backgroundColor: '#e0e0e0', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', flex: 0.3 }}>
-            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 35, color: 'gray' }}>11</Text>
-            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 18, color: 'gray' }}>Seg</Text>
-          </View>
-          <View style={{ marginLeft: 20, backgroundColor: '#fff', justifyContent: 'center', flexDirection: 'column', flex: 0.7 }}>
-            <Text style={{ fontFamily: 'Roboto-Regular', color: 'gray', fontSize: 18, fontWeight: 'bold' }}>Palestras</Text>
-            <Text style={{ fontFamily: 'Roboto-Regular', color: 'gray' }}>Horário: </Text>
-            <Text style={{ fontFamily: 'Roboto-Regular', color: 'gray' }}>Local: Auditório</Text>
-          </View>
-        </View>
-        <Hr color='#fff' width={1} /><View style={{ flex: 0.2, flexDirection: 'row' }}>
-          <View style={{ backgroundColor: '#e0e0e0', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', flex: 0.3 }}>
-            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 35, color: 'gray' }}>11</Text>
-            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 18, color: 'gray' }}>Seg</Text>
+          <View style={{ backgroundColor: '#f58231', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', flex: 0.3 }}>
+            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 35, color: 'white' }}>11</Text>
+            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 18, color: 'white' }}>Seg</Text>
           </View>
           <View style={{ marginLeft: 20, backgroundColor: '#fff', justifyContent: 'center', flexDirection: 'column', flex: 0.7 }}>
             <Text style={{ fontFamily: 'Roboto-Regular', color: 'gray', fontSize: 18, fontWeight: 'bold' }}>Palestras</Text>
