@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Alert, Text, FlatList, View, StatusBar, StyleSheet, ActivityIndicator } from 'react-native';
 import Timeline from 'react-native-timeline-listview';
-import { getTalks } from "../../actions/TalkAction";
+import { getTalks } from '../../actions/TalkAction';
 
 class Monday extends Component {
   constructor(props) {
@@ -55,7 +55,6 @@ class Monday extends Component {
           <Timeline
             style={styles.list}
             data={this.talksToTimeline()}
-            circleSize={20}
             circleColor='#BDBDBD'
             lineColor='#BDBDBD'
             timeContainerStyle={{ minWidth: 52 }}
