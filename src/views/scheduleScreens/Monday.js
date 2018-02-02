@@ -8,25 +8,34 @@ class Monday extends Component {
   constructor(props) {
     super(props);
 
-    if (this.props.talks.length === 0) {
-      this.props.getTalks();
-    }
-
     this.state = {
       renderTimeline: false,
     }
 
-    this.data = [
-      { time: '09:00', title: 'Archery Training', description: 'The Beginner Archery and Beginner Crossbow course does not require you to bring any equipment, since everything you need will be provided for the course. ' },
-      { time: '10:45', title: 'Play Badminton', description: 'Badminton is a racquet sport played using racquets to hit a shuttlecock across a net.' },
-      { time: '12:00', title: 'Lunch' },
-      { time: '14:00', title: 'Watch Soccer', description: 'Team sport played between two teams of eleven players with a spherical ball. ' },
-      { time: '16:30', title: 'Go to Fitness center', description: 'Look out for the Best Gym & Fitness Centers around me :)' }
-    ]
+    console.ignoredYellowBox = [
+      'Setting a timer'
+    ];
+
+    if (this.props.talks.length === 0) {
+      this.props.getTalks();
+    }
   }
 
   componentDidMount() {
     setTimeout(() => { this.setState({ renderTimeline: true }) }, 0);
+  }
+
+  talksToTimeline() {
+    const res = [];
+  
+    for (let i = 0; i < this.props.talks.length; ++i) {
+      res.push({ 
+        time: this.props.talks[i].time, 
+        title: this.props.talks[i].title, 
+        description: `Local: ${this.props.talks[i].local}` 
+      });
+    }
+    return res;
   }
 
   render() {
@@ -45,7 +54,7 @@ class Monday extends Component {
         {renderTimeline &&
           <Timeline
             style={styles.list}
-            data={this.data}
+            data={this.talksToTimeline()}
             circleSize={20}
             circleColor='#BDBDBD'
             lineColor='#BDBDBD'
