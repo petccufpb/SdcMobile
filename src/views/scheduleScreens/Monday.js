@@ -32,7 +32,7 @@ class Monday extends Component {
       res.push({
         time: this.props.talks[i].time,
         title: this.props.talks[i].title,
-        description: `Local: ${this.props.talks[i].local}`
+        description: `Palestra \t Local: ${this.props.talks[i].local}`
       });
     }
     return res;
