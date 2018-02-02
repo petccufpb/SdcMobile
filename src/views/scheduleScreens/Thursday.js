@@ -32,7 +32,6 @@ class Thursday extends Component {
       res.push({
         time: this.props.courses[i].time,
         title: this.props.courses[i].title,
-        detail: 'Minicurso',
         description: `Minicurso \t Local: ${this.props.courses[i].local}`
       });
     }
