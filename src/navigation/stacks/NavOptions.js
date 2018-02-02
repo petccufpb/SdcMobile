@@ -10,8 +10,8 @@ export default navOptions = ({ navigation }) => ({
     fontWeight: 'normal',
   },
   title: 'SDC18',
-  headerStyle: { backgroundColor: '#212121', elevation: 0 },
+  headerStyle: { backgroundColor: '#f5f5f5', elevation: 0 },
   headerTintColor: 'white',
-  headerLeft: <Icon.Button name="ios-menu-outline" color={'white'} backgroundColor={'#212121'} onPress={() =>
+  headerLeft: <Icon.Button name="ios-menu-outline" color={'gray'} backgroundColor={'#f5f5f5'} onPress={() =>
     navigation.navigate('DrawerToggle')} />,
 });

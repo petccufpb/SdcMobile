@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { StatusBar, View, Text, StyleSheet, Button } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import { mainColor } from '../util';
@@ -20,7 +20,10 @@ export default class AboutScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text> AboutScreen.js </Text>
+        <StatusBar
+          backgroundColor='#000'
+          barStyle='light-content'
+        />
       </View>
     );
   }
@@ -30,6 +33,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: '#303030'
   }
 });

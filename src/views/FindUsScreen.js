@@ -26,8 +26,8 @@ export default class FindUsScreen extends Component {
     return (
       <View style={styles.container}>
         <StatusBar
-          backgroundColor='#000'
-          barStyle='light-content'
+          backgroundColor='#e0e0e0'
+          barStyle='dark-content'
         />
         <MapView
           style={styles.map}

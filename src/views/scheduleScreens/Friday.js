@@ -36,7 +36,7 @@ class Friday extends Component {
       res.push({
         time: this.props.gameday.time,
         title: this.props.games[i].name,
-        description: `Competição \t Local: ${this.props.gameday.local}`
+        description: `Competição\t\tLocal: ${this.props.gameday.local}`
       });
     }
 
@@ -48,8 +48,8 @@ class Friday extends Component {
     return (
       <View style={styles.container}>
         <StatusBar
-          backgroundColor='#000'
-          barStyle='light-content'
+          backgroundColor='#e0e0e0'
+          barStyle='dark-content'
         />
         {!renderTimeline &&
           <View style={{ flex: 1, justifyContent: 'center' }}>
@@ -61,12 +61,12 @@ class Friday extends Component {
             style={styles.list}
             data={this.dataToTimeline()}
             columnFormat='single-column-left'
-            circleColor='#BDBDBD'
-            lineColor='#BDBDBD'
+            circleColor='#68efad'
+            lineColor='#68efad'
             timeContainerStyle={{ minWidth: 52 }}
-            timeStyle={{ textAlign: 'center', backgroundColor: '#D500F9', color: 'white', padding: 5, borderRadius: 13 }}
-            descriptionStyle={{ color: 'white', fontFamily: 'Roboto-Light' }}
-            titleStyle={{ color: 'white', fontFamily: 'Roboto-Light' }}
+            timeStyle={{ textAlign: 'center', backgroundColor: '#691a99', color: 'white', padding: 5, borderRadius: 13 }}
+            descriptionStyle={{ color: 'gray', fontFamily: 'Roboto-Light' }}
+            titleStyle={{ color: 'gray', fontFamily: 'Roboto-Light' }}
             separatorStyle={{ height: 0.5 }}
           />
         }
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#303030'
+    backgroundColor: '#fafafa'
   },
   list: {
     flex: 1,
