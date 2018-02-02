@@ -16,7 +16,7 @@ export default class FindUsScreen extends Component {
   static navigationOptions = {
     title: 'Onde',
     drawerLabel: 'Onde',
-    headerStyle: { backgroundColor: '#fff', elevation: 5 },
+    headerStyle: { backgroundColor: '#212121', elevation: 5 },
     drawerIcon: ({ focused, tintColor }) => (
       <Icon name='ios-map-outline' size={40} color={focused ? 'white' : 'gray'} />
     ),
@@ -26,8 +26,8 @@ export default class FindUsScreen extends Component {
     return (
       <View style={styles.container}>
         <StatusBar
-          backgroundColor='#e0e0e0'
-          barStyle='dark-content'
+          backgroundColor='#000'
+          barStyle='light-content'
         />
         <MapView
           style={styles.map}
@@ -43,7 +43,7 @@ export default class FindUsScreen extends Component {
             title='Centro de Informática - UFPB'
             description='R. dos Escoteiros, s/n - Mangabeira, João Pessoa - PB, 58055-000'
             coordinate={{ latitude: -7.162287, longitude: -34.817208 }}
-            pinColor='#691a99' />
+            pinColor='#D500F9' />
         </MapView>
       </View>
     );

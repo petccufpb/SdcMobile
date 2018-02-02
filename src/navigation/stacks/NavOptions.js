@@ -12,6 +12,6 @@ export default navOptions = ({ navigation }) => ({
   title: 'SDC18',
   headerStyle: { backgroundColor: '#212121', elevation: 0 },
   headerTintColor: 'white',
-  headerLeft: <Icon.Button name="ios-menu-outline" color={'gray'} backgroundColor={'#fff'} onPress={() =>
+  headerLeft: <Icon.Button name="ios-menu-outline" color={'white'} backgroundColor={'#212121'} onPress={() =>
     navigation.navigate('DrawerToggle')} />,
 });

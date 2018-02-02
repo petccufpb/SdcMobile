@@ -10,6 +10,7 @@ import ScheduleItem from "./ScheduleItem";
 import CardHeader from "./CardHeader";
 import CardContent from "./CardContent";
 import ActivityIndicator from "./ActivityIndicator";
+import DayWithDescription from './DayWithDescription';
 
 export { 
   Hr,
@@ -20,4 +21,5 @@ export {
   CardHeader,
   CardContent,
   ActivityIndicator,
+  DayWithDescription,
 };
