@@ -25,14 +25,14 @@ class Monday extends Component {
     setTimeout(() => { this.setState({ renderTimeline: true }) }, 0);
   }
 
-  talksToTimeline() {
+  dataToTimeline() {
     const res = [];
-  
+
     for (let i = 0; i < this.props.talks.length; ++i) {
-      res.push({ 
-        time: this.props.talks[i].time, 
-        title: this.props.talks[i].title, 
-        description: `Local: ${this.props.talks[i].local}` 
+      res.push({
+        time: this.props.talks[i].time,
+        title: this.props.talks[i].title,
+        description: `Local: ${this.props.talks[i].local}`
       });
     }
     return res;
@@ -54,7 +54,7 @@ class Monday extends Component {
         {renderTimeline &&
           <Timeline
             style={styles.list}
-            data={this.talksToTimeline()}
+            data={this.dataToTimeline()}
             circleColor='#BDBDBD'
             lineColor='#BDBDBD'
             timeContainerStyle={{ minWidth: 52 }}

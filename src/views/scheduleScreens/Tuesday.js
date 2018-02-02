@@ -10,7 +10,6 @@ class Tuesday extends Component {
 
     this.state = {
       renderTimeline: false,
-      labs: props.labs
     }
 
     console.ignoredYellowBox = [
@@ -26,14 +25,14 @@ class Tuesday extends Component {
     setTimeout(() => { this.setState({ renderTimeline: true }) }, 0);
   }
 
-  labsToTimeline() {
+  dataToTimeline() {
     const res = [];
-  
+
     for (let i = 0; i < this.props.labs.length; ++i) {
-      res.push({ 
-        time: this.props.labs[i].time, 
-        title: this.props.labs[i].title, 
-        description: `Local: ${this.props.labs[i].local}` 
+      res.push({
+        time: this.props.labs[i].time,
+        title: this.props.labs[i].title,
+        description: `Local: ${this.props.labs[i].local}`
       });
     }
     return res;
@@ -55,7 +54,7 @@ class Tuesday extends Component {
         {renderTimeline &&
           <Timeline
             style={styles.list}
-            data={this.labsToTimeline()}
+            data={this.dataToTimeline()}
             columnFormat='single-column-left'
             circleColor='#BDBDBD'
             lineColor='#BDBDBD'
