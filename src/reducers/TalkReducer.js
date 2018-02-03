@@ -8,12 +8,14 @@ import {
   ERROR_GET_TALKS,
   GET_ALL_TALKS,
   GET_ALL_TALKS_SUCCESS,
-  ERROR_GET_ALL_TALKS
+  ERROR_GET_ALL_TALKS,
+  GET_ALL_TALKS_AND_SPEAKER
 } from '../actions/types';
 
 const INITIAL_STATE = {
   talks: [],
   allTalks: [],
+  speakers: [],
   error: "",
   loading: false
 };
@@ -31,6 +33,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, loading: true };
     case GET_ALL_TALKS_SUCCESS:
       return { ...state, allTalks: action.payload, error: "", loading: false };
+      case GET_ALL_TALKS_AND_SPEAKER:
+      return { ...state, allTalks: action.payload.allTalks, speakers: action.payload.speakers, error:"", loading: false }
     case ERROR_GET_ALL_TALKS:
       return { ...state, error: action.payload, loading: false };
     default:

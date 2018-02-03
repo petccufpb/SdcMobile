@@ -29,7 +29,7 @@ const DrawerNav = DrawerNavigator({
   home: { screen: HomeStack },
   when: { screen: WhenStack },
   findus: { screen: FindUsStack },
-  speaker: { screen: SpeakerStack },
+  // speaker: { screen: SpeakerStack },
   // talk: { screen: TalkStack },
   // course: { screen: CourseStack },
   // progcompetition: { screen: ProgCompetitionStack },

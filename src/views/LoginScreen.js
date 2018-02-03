@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   input: {
-    fontFamily: 'Oxygen-Light',
+    fontFamily: 'Roboto-Light',
     fontSize: normalizeFontSize(8),
     color: '#757575',
     marginTop: 5,
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     width: Dimensions.get("window").width * .8
   },
   textButtonEntrar: {
-    fontFamily: 'Oxygen-Light',
+    fontFamily: 'Roboto-Light',
     fontSize: normalizeFontSize(9),
     color: '#6441A5',
     paddingHorizontal: 30,
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
   },
   textWithDivider: {
     color: 'white',
-    fontFamily: 'Oxygen-Light',
+    fontFamily: 'Roboto-Light',
     marginVertical: 10,
     paddingHorizontal: 10
   },
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
   },
   textButtonFacebookGoogle: {
     marginLeft: 12, 
-    fontFamily: 'Oxygen-Light',
+    fontFamily: 'Roboto-Light',
     fontSize: normalizeFontSize(9), 
     color: '#fff'
   }

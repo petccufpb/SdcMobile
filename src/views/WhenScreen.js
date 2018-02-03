@@ -11,7 +11,7 @@ export default class WhenScreen extends Component {
   static navigationOptions = {
     title: 'Quando',
     drawerLabel: 'Quando',
-    headerStyle: { backgroundColor: '#212121', elevation: 5 },
+    headerStyle: { backgroundColor: '#f5f5f5', elevation: 5 },
     drawerIcon: ({ focused, tintColor }) => (
       <Icon name='ios-calendar-outline' size={40} color={focused ? 'white' : 'gray'} />
     ),
@@ -21,8 +21,8 @@ export default class WhenScreen extends Component {
     return (
       <View style={styles.container}>
         <StatusBar
-          backgroundColor='#000'
-          barStyle='light-content'
+          backgroundColor='#e0e0e0'
+          barStyle='dark-content'
         />
         <View style={{ flex: 0.2, flexDirection: 'row' }}>
           <DayWithDescription
@@ -34,7 +34,7 @@ export default class WhenScreen extends Component {
             local='Auditório'
           />
         </View>
-        <Hr color='gray' width={1} />
+        <Hr color='#EEEEEE' width={1} />
         <View style={{ flex: 0.2, flexDirection: 'row' }}>
           <DayWithDescription
             color='#3cb44b'
@@ -45,7 +45,7 @@ export default class WhenScreen extends Component {
             local='Auditório'
           />
         </View>
-        <Hr color='gray' width={1} />
+        <Hr color='#EEEEEE' width={1} />
         <View style={{ flex: 0.2, flexDirection: 'row' }}>
           <DayWithDescription
             color='#911eb4'
@@ -56,7 +56,7 @@ export default class WhenScreen extends Component {
             local='Auditório'
           />
         </View>
-        <Hr color='gray' width={1} />
+        <Hr color='#EEEEEE' width={1} />
         <View style={{ flex: 0.2, flexDirection: 'row' }}>
           <DayWithDescription
             color='#0082c8'
@@ -67,7 +67,7 @@ export default class WhenScreen extends Component {
             local='Auditório'
           />
         </View>
-        <Hr color='gray' width={1} />
+        <Hr color='#EEEEEE' width={1} />
         <View style={{ flex: 0.2, flexDirection: 'row' }}>
           <DayWithDescription
             color='#f58231'
@@ -87,6 +87,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    backgroundColor: '#303030'
+    backgroundColor: '#fafafa'
   },
 });

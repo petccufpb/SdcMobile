@@ -11,6 +11,7 @@ import ProgCompetitionReducer from './ProgCompetitionReducer';
 import GameDayReducer from './GameDayReducer';
 import LabReducer from './LabReducer';
 import CourseReducer from './CourseReducer';
+import CheckinReducer from './CheckinReducer';
 
 export default combineReducers({
   AuthReducer,
@@ -20,4 +21,5 @@ export default combineReducers({
   ProgCompetitionReducer,
   LabReducer,
   CourseReducer,
+  CheckinReducer,
 });

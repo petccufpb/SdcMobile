@@ -146,6 +146,10 @@ dependencies {
     compile "com.facebook.react:react-native:+"  // From node_modules
     compile 'com.google.android.gms:play-services-maps:+'
     compile project(':react-native-maps')
+    compile (project(':react-native-camera')) {
+        exclude group: "com.android.support"
+        exclude group: "com.google.android.gms"
+   }
 }
 
 // Run this once to be able to run the application with BUCK

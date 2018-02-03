@@ -16,7 +16,7 @@ export default class FindUsScreen extends Component {
   static navigationOptions = {
     title: 'Onde',
     drawerLabel: 'Onde',
-    headerStyle: { backgroundColor: '#212121', elevation: 5 },
+    headerStyle: { backgroundColor: '#f5f5f5', elevation: 5 },
     drawerIcon: ({ focused, tintColor }) => (
       <Icon name='ios-map-outline' size={40} color={focused ? 'white' : 'gray'} />
     ),
