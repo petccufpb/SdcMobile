@@ -4,6 +4,7 @@
 export const CHANGE_NAME = 'change-name';
 export const CHANGE_EMAIL = 'change-email';
 export const CHANGE_PASSWORD = 'change-password';
+export const CLEAR_LOGIN_ERR = 'CLEAR_LOGIN_ERR';
 export const LOGIN_SUCCESSFUL = 'login-successful';
 export const LOGIN_ERR = 'login-err';
 export const CLEAN_FIELDS = 'clean-fields';

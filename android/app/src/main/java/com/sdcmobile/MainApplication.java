@@ -1,7 +1,7 @@
 package com.sdcmobile;
 
 import android.app.Application;
-
+import com.azendoo.reactnativesnackbar.SnackbarPackage; 
 import com.facebook.react.ReactApplication;
 import com.lwansbrough.RCTCamera.RCTCameraPackage;
 import com.magus.fblogin.FacebookLoginPackage;
@@ -30,6 +30,7 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
             new RCTCameraPackage(),
+              new SnackbarPackage(),
             new FacebookLoginPackage(),
             new LinearGradientPackage(),
             new SplashScreenReactPackage(),

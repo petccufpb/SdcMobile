@@ -5,38 +5,40 @@
 import firebase from 'firebase';
 import { NavigationActions } from 'react-navigation';
 import Auth from '../config/auth';
-
 import {
   CHANGE_NAME,
   CHANGE_EMAIL,
   CHANGE_PASSWORD,
   LOGIN_ERR,
   LOGIN_SUCCESSFUL,
-  CLEAN_FIELDS
+  CLEAN_FIELDS,
+  CLEAR_LOGIN_ERR
 } from './types';
 import { REF_DB_USERS } from './refDatabase';
-import { Alert } from 'react-native';
+
 
 export const changeName = text => {
   return {
     type: CHANGE_NAME,
     payload: text
   }
-}
+};
 
 export const changeEmail = text => {
   return {
     type: CHANGE_EMAIL,
     payload: text
   }
-}
+};
 
 export const changePassword = text => {
   return {
     type: CHANGE_PASSWORD,
     payload: text
   }
-}
+};
+
+export const clearLoginError = () => ({ type: CLEAR_LOGIN_ERR });
 
 export const loginWithFacebook = () => {
   return dispatch => {
@@ -44,9 +46,9 @@ export const loginWithFacebook = () => {
       .then(token => {
         firebase.auth().signInWithCredential(firebase.auth.FacebookAuthProvider.credential(token))
         .then(() => dispatch(navToHome))
-        .catch(err => { Alert.alert('Err', err.toString()); dispatch({ type: LOGIN_ERR, payload: err.message })});
+        .catch(err => { dispatch({ type: LOGIN_ERR, payload: err.message })});
       })
-      .catch(err => { Alert.alert('Err', err.toString()); dispatch({ type: LOGIN_ERR, payload: err.message })});
+      .catch(err => { dispatch({ type: LOGIN_ERR, payload: err.message })});
   }
 };
 
@@ -89,9 +91,10 @@ export const cleanFields = () => {
   }
 }
 
-const navToHome = NavigationActions.navigate({
-  routeName: 'drawerStack'
-});
+const navToHome = null;
+// NavigationActions.navigate({
+//   routeName: 'drawerStack'
+// });
 
 const navToLogin = NavigationActions.navigate({
   routeName: 'signOutStack'

@@ -11,9 +11,14 @@ import { configFirebase } from './src/util';
 import ReduxNavigation from './src/navigation/ReduxNavigation';
 import { INIT_AUTH } from './src/actions/types';
 
+
+const store = createStore(reducers, {}, applyMiddleware(thunk));
+
 export default class App extends Component {
   componentWillMount() {
-    firebase.initializeApp(configFirebase);
+    if (!firebase.apps.length) {
+      firebase.initializeApp(configFirebase);
+    }
   }
 
   /**
@@ -33,15 +38,16 @@ export default class App extends Component {
   }
 
   render() {
-    const store = createStore(reducers, {}, applyMiddleware(thunk));
     this.initAuth(store.dispatch)
       .then(authUser => {
-        if(authUser) {
-          store.dispatch(NavigationActions.navigate({routeName: 'drawerStack'}));
+        if (authUser) {
+          store.dispatch(NavigationActions.navigate({ routeName: 'drawerStack' }));
+        } else {
+          store.dispatch(NavigationActions.navigate({ routeName: 'signOutStack' }));
         }
         SplashScreen.hide();
       })
-      .catch(error => {SplashScreen.hide(); console.error(error)});
+      .catch(error => { SplashScreen.hide(); console.error(error) });
     return (
       <Provider store={store}>
         <ReduxNavigation />

@@ -9,7 +9,8 @@ import {
   LOGIN_SUCCESSFUL,
   LOGIN_ERR,
   CLEAN_FIELDS,
-  INIT_AUTH
+  INIT_AUTH,
+  CLEAR_LOGIN_ERR
 } from '../actions/types';
 
 const INITIAL_STATE_DEV = {
@@ -28,8 +29,8 @@ const INITIAL_STATE = {
   authUser: null
 };
 
-export default (state = INITIAL_STATE_DEV, action) => {
-  
+export default (state = INITIAL_STATE, action) => {
+
   switch (action.type) {
     case CHANGE_NAME:
       return { ...state, name: action.payload };
@@ -43,6 +44,8 @@ export default (state = INITIAL_STATE_DEV, action) => {
       return { ...state, loginError: action.payload };
     case CLEAN_FIELDS:
       return { state: INITIAL_STATE }
+    case CLEAR_LOGIN_ERR:
+      return { ...state, loginError: '' };
     case INIT_AUTH:
       return { ...state, authUser: action.payload }
     default:

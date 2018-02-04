@@ -18,6 +18,14 @@ import { ActivityIndicator } from '../../components';
 import { mainColor } from "../../util";
 
 export default class ScheduleModalScreen extends Component {
+  static navigationOptions = ({ navigation, screenProps }) => ({
+    title: 'Sobre',
+    headerStyle: { backgroundColor: '#f5f5f5', elevation: 5 },
+    headerTintColor: 'gray',
+    headerLeft: <Icon.Button size={40} name="ios-close-outline" color={'gray'} backgroundColor={'#f5f5f5'}
+      onPress={() => navigation.goBack(null)} />,
+  });
+  
   constructor(props) {
     super(props);
     this.state = { speaker: null, error: "" };
@@ -30,14 +38,6 @@ export default class ScheduleModalScreen extends Component {
     })
       .catch(error => dispatch(this.setState({ ...this.state, error })));
   }
-
-  static navigationOptions = ({ navigation, screenProps }) => ({
-    title: 'Sobre',
-    headerStyle: { backgroundColor: '#f5f5f5', elevation: 5 },
-    headerTintColor: 'gray',
-    headerLeft: <Icon.Button size={40} name="ios-close-outline" color={'gray'} backgroundColor={'#f5f5f5'}
-      onPress={() => navigation.goBack(null)} />,
-  });
 
   render() {
     const { state } = this.props.navigation;

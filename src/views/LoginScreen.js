@@ -16,11 +16,13 @@ import {
 import Hr from 'react-native-hr-plus';
 import Icon from 'react-native-vector-icons/Zocial';
 import LinearGradient from 'react-native-linear-gradient';
+import Snackbar from 'react-native-snackbar';
 import {
   changeEmail,
   changePassword,
   loginUser,
-  loginWithFacebook
+  loginWithFacebook,
+  clearLoginError
 } from '../actions/AuthAction';
 import { normalizeFontSize } from '../util';
 
@@ -28,6 +30,35 @@ const logoSdc = require('../../assets/images/logo-sem-fundo.png');
 
 class LoginScreen extends Component {
   static navigationOptions = { header: null };
+
+  async loginUser() {
+    if (!this.props.email || !this.props.password) {
+      return Snackbar.show({
+        title: 'Preencha todos os campos',
+        backgroundColor: 'red',
+        action: {
+          title: 'Ok',
+          color: 'white',
+          onPress: () => false,
+        },
+      });
+    }
+    await this.props.loginUser(this.props.email, this.props.password);
+
+    if(this.props.loginError) {
+      this.props.clearLoginError();
+     
+      return Snackbar.show({
+        title: 'Email ou senha incorreto(s)',
+        backgroundColor: 'red',
+        action: {
+          title: 'Ok',
+          color: 'white',
+          onPress: () => false,
+        },
+      });
+    }
+  }
 
   render() {
     return (
@@ -64,7 +95,7 @@ class LoginScreen extends Component {
           <View style={styles.containerBotoes}>
             <TouchableOpacity
               style={styles.buttonEntrar}
-              onPress={() => this.props.loginUser(this.props.email, this.props.password)}>
+              onPress={() => this.loginUser()}>
               <Text style={styles.textButtonEntrar}>Entrar</Text>
             </TouchableOpacity>
             <Hr color='#fff' width={1}>
@@ -162,4 +193,4 @@ mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps,
-  { changeEmail, changePassword, loginUser, loginWithFacebook })(LoginScreen);
+  { changeEmail, changePassword, loginUser, loginWithFacebook, clearLoginError })(LoginScreen);

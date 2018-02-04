@@ -19,7 +19,8 @@ import {
   TalkStack,
   WhenStack,
   SpeakerStack,
-  ScheduleModalStack
+  ScheduleModalStack,
+  MockStack,
 } from './stacks';
 /* 
   Drawer Nav 
@@ -86,6 +87,7 @@ const noTransitionConfig = () => ({
 
 /* Main Navigation */
 const PrimaryNav = StackNavigator({
+  mockStack: { screen: MockStack },
   signOutStack: { screen: SignOutStack },
   drawerStack: { screen: DrawerStack },
   scheduleModal: { screen: ScheduleModalStack }
@@ -93,7 +95,7 @@ const PrimaryNav = StackNavigator({
     // Default config for all screens
     headerMode: 'none',
     title: 'Main',
-    initialRouteName: 'signOutStack',
+    initialRouteName: 'mockStack',
     transitionConfig: noTransitionConfig,
   }
 );
