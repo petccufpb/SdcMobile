@@ -18,9 +18,9 @@ import {
   SettingsStack,
   TalkStack,
   WhenStack,
-  SpeakerStack
+  SpeakerStack,
+  ScheduleModalStack
 } from './stacks';
-
 /* 
   Drawer Nav 
   Aqui fica as cenas do side menu
@@ -37,7 +37,7 @@ const DrawerNav = DrawerNavigator({
   checkin: { screen: CheckinStack },
   // cimap: { screen: CiMapStack },
   // faq: { screen: FaqStack },
-  about: { screen: AboutStack },
+  // about: { screen: AboutStack },
   // settings: { screen: SettingsStack },
 }, 
 { // Config do drawer
@@ -58,7 +58,7 @@ const DrawerNav = DrawerNavigator({
       width: 40
     }
   },
-  drawerBackgroundColor: 'rgba(105, 26, 153, 0.95)',
+  drawerBackgroundColor: 'rgba(27, 5, 38, 0.95)',
   contentComponent: SideMenu
 });
 
@@ -87,7 +87,8 @@ const noTransitionConfig = () => ({
 /* Main Navigation */
 const PrimaryNav = StackNavigator({
   signOutStack: { screen: SignOutStack },
-  drawerStack: { screen: DrawerStack }
+  drawerStack: { screen: DrawerStack },
+  scheduleModal: { screen: ScheduleModalStack }
 }, {
     // Default config for all screens
     headerMode: 'none',

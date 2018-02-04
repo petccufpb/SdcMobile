@@ -4,6 +4,7 @@
 
 import firebase from 'firebase';
 import { NavigationActions } from 'react-navigation';
+import Auth from '../config/auth';
 
 import {
   CHANGE_NAME,
@@ -14,6 +15,7 @@ import {
   CLEAN_FIELDS
 } from './types';
 import { REF_DB_USERS } from './refDatabase';
+import { Alert } from 'react-native';
 
 export const changeName = text => {
   return {
@@ -36,12 +38,16 @@ export const changePassword = text => {
   }
 }
 
-export const loginWithFacebook = () => dispatch => {
-   // TODO
-};
-
-export const loginWithGoogle = () => dispatch => {
-  // TODO
+export const loginWithFacebook = () => {
+  return dispatch => {
+    Auth.Facebook.login(['email'])
+      .then(token => {
+        firebase.auth().signInWithCredential(firebase.auth.FacebookAuthProvider.credential(token))
+        .then(() => dispatch(navToHome))
+        .catch(err => { Alert.alert('Err', err.toString()); dispatch({ type: LOGIN_ERR, payload: err.message })});
+      })
+      .catch(err => { Alert.alert('Err', err.toString()); dispatch({ type: LOGIN_ERR, payload: err.message })});
+  }
 };
 
 export const loginUser = (email, password) => {

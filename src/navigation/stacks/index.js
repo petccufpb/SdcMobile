@@ -16,3 +16,4 @@
  export { TalkStack } from './TalkStack';
  export { WhenStack } from './WhenStack';
  export { SpeakerStack } from './SpeakerStack';
+ export { ScheduleModalStack } from './ScheduleStack';

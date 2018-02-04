@@ -21,8 +21,8 @@ export default class AboutScreen extends Component {
     return (
       <View style={styles.container}>
         <StatusBar
-          backgroundColor='#000'
-          barStyle='light-content'
+          backgroundColor='#e0e0e0'
+          barStyle='dark-content'
         />
       </View>
     );
@@ -34,6 +34,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#303030'
+    backgroundColor: '#fafafa'
   }
 });

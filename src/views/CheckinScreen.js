@@ -60,7 +60,7 @@ class CheckinScreen extends Component {
           <MaterialCommunityIcons
             name="qrcode-scan"
             size={150}
-            color='#9778da'
+            color={mainColor}
           />
           <View style={{ marginTop: 25 }}>
             <TouchableOpacity
@@ -146,17 +146,19 @@ const styles = StyleSheet.create({
   },
   txtSuccess: {
     color: "darkgreen",
-    fontSize: 20
+    fontSize: 20,
+    fontFamily: 'Roboto-Light',
   },
   txtError: {
     color: "darkred",
-    fontSize: 20
+    fontSize: 20,
+    fontFamily: 'Roboto-Light',
   },
   buttonEntrar: {
     backgroundColor: 'transparent',
     borderRadius: 50,
     borderWidth: 1,
-    borderColor: '#9778da',
+    borderColor: mainColor,
     alignItems: 'center',
     justifyContent: 'center',
     width: Dimensions.get("window").width * .8
@@ -164,7 +166,7 @@ const styles = StyleSheet.create({
   textButtonEntrar: {
     fontFamily: 'Roboto-Light',
     fontSize: 18,
-    color: '#9778da',
+    color: mainColor,
     paddingHorizontal: 30,
     paddingVertical: 10
   }

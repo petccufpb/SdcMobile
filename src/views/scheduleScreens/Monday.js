@@ -21,6 +21,14 @@ class Monday extends Component {
     }
   }
 
+  openModal(talk) {
+    if (talk.title === "Coffee Break" || talk.title === "Check-in" 
+    || talk.title === "Abertura - Boas-vindas aos feras") {
+      return false;
+    }
+    this.props.navigation.navigate("scheduleModal", talk);
+  }
+
   componentDidMount() {
     setTimeout(() => { this.setState({ renderTimeline: true }) }, 0);
   }
@@ -38,7 +46,8 @@ class Monday extends Component {
       res.push({
         time: this.props.talks[i].time,
         title: this.props.talks[i].title,
-        description: `${tipo}Local: ${this.props.talks[i].local}`
+        description: `${tipo}Local: ${this.props.talks[i].local}`,
+        onPress: () => this.openModal(this.props.talks[i])
       });
     }
     return res;

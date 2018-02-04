@@ -16,13 +16,12 @@ import {
 import Hr from 'react-native-hr-plus';
 import Icon from 'react-native-vector-icons/Zocial';
 import LinearGradient from 'react-native-linear-gradient';
-import { 
+import {
   changeEmail,
   changePassword,
   loginUser,
-  loginWithFacebook,
-  loginWithGoogle }
-from '../actions/AuthAction'
+  loginWithFacebook
+} from '../actions/AuthAction';
 import { normalizeFontSize } from '../util';
 
 const logoSdc = require('../../assets/images/logo-sem-fundo.png');
@@ -74,7 +73,7 @@ class LoginScreen extends Component {
             <View style={{ flexDirection: 'row' }}>
               <TouchableOpacity
                 style={[styles.buttonEntrar, { backgroundColor: '#3b5998' }]}
-                onPress={() => this.props.loginWithFacebook() }>
+                onPress={() => this.props.loginWithFacebook()}>
                 <View style={styles.containerButtonFacebookGoogle}>
                   <Icon name='facebook' color='#fff' size={20} />
                   <Text style={styles.textButtonFacebookGoogle}>Facebook</Text>
@@ -149,9 +148,9 @@ const styles = StyleSheet.create({
     paddingVertical: 10
   },
   textButtonFacebookGoogle: {
-    marginLeft: 12, 
+    marginLeft: 12,
     fontFamily: 'Roboto-Light',
-    fontSize: normalizeFontSize(9), 
+    fontSize: normalizeFontSize(9),
     color: '#fff'
   }
 });
@@ -162,5 +161,5 @@ mapStateToProps = state => ({
   loginError: state.AuthReducer.loginError
 })
 
-export default connect(mapStateToProps, 
-  { changeEmail, changePassword, loginUser, loginWithFacebook, loginWithGoogle })(LoginScreen);
+export default connect(mapStateToProps,
+  { changeEmail, changePassword, loginUser, loginWithFacebook })(LoginScreen);
