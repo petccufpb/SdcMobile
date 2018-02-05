@@ -55,7 +55,7 @@ export const loginWithFacebook = () => {
 export const loginUser = (email, password) => {
   return dispatch => {
     firebase.auth().signInWithEmailAndPassword(email, password)
-      .then(user => dispatch(navToHome))
+      .then(user => true)
       .catch(err => dispatch({ type: LOGIN_ERR, payload: err.message }));
   }
 }
@@ -72,7 +72,7 @@ const registerUserDatabase = (userModel, dispatch) => {
   var userId = firebase.auth().currentUser.uid;
   userModel.uid = userId;
   firebase.database().ref(REF_DB_USERS + userId).set(userModel)
-    .then(user => dispatch(navToHome))
+    .then(user => true)
     .catch(err => dispatch({ type: LOGIN_ERR, payload: err.message }));
 }
 
@@ -91,10 +91,9 @@ export const cleanFields = () => {
   }
 }
 
-const navToHome = null;
-// NavigationActions.navigate({
-//   routeName: 'drawerStack'
-// });
+const navToHome = NavigationActions.navigate({
+  routeName: 'drawerStack'
+});
 
 const navToLogin = NavigationActions.navigate({
   routeName: 'signOutStack'

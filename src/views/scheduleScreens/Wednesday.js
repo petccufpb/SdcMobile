@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Alert, Text, Platform, View, StatusBar, StyleSheet, ActivityIndicator } from 'react-native';
+import { Linking, Alert, Text, Platform, View, StatusBar, StyleSheet, ActivityIndicator } from 'react-native';
 import Timeline from 'react-native-timeline-listview';
 import { getTalkWednesday } from "../../actions/ProgCompetitionAction";
+import { createAlert } from "../../util";
 
 class Wednesday extends Component {
   constructor(props) {
@@ -25,6 +26,21 @@ class Wednesday extends Component {
     setTimeout(() => { this.setState({ renderTimeline: true }) }, 0);
   }
 
+  openModal(talk) {
+    if (talk.title === "Coffee Break") {
+      return false;
+    }
+    if(talk.title === "Maratona de Programação") {
+      return createAlert(
+        "Inscrição",
+        "Deseja abrir o formulário para inscrição?",
+        () => Linking.openURL('http://bit.do/maratona-programacao'),
+        () => false
+      );
+    }
+    this.props.navigation.navigate("scheduleModal", talk);
+  }
+
   dataToTimeline() {
     const res = [];
 
@@ -40,7 +56,8 @@ class Wednesday extends Component {
       res.push({
         time: this.props.talks[i].time,
         title: this.props.talks[i].title,
-        description: `${tipo}Local: ${this.props.talks[i].local}`
+        description: `${tipo}Local: ${this.props.talks[i].local}\n\nGratuito`,
+        onPress: () => this.openModal(this.props.talks[i])
       });
     }
 

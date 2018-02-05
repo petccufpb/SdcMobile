@@ -26,7 +26,7 @@ class MockScreen extends Component {
           backgroundColor='#fff'
           barStyle='dark-content'
         />
-        <Image source={logoSdc} style={{ width: 277, height: 105 }} />
+        <Image source={logoSdc} style={{ width: 279, height: 105 }} />
       </LinearGradient>
     );
   }

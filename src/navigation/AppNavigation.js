@@ -59,7 +59,7 @@ const DrawerNav = DrawerNavigator({
       width: 40
     }
   },
-  drawerBackgroundColor: 'rgba(27, 5, 38, 0.95)',
+  drawerBackgroundColor: 'rgba(67, 27, 91, 0.95)',
   contentComponent: SideMenu
 });
 

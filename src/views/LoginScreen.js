@@ -57,6 +57,8 @@ class LoginScreen extends Component {
           onPress: () => false,
         },
       });
+    } else {
+      this.props.navigation.navigate('drawerStack');
     }
   }
 

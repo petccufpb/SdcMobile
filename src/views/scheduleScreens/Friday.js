@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Alert, Text, Platform, View, StatusBar, StyleSheet, ActivityIndicator } from 'react-native';
+import { Linking, Alert, Text, Platform, View, StatusBar, StyleSheet, ActivityIndicator } from 'react-native';
 import Timeline from 'react-native-timeline-listview';
 import { getGameDay, getGameDayGames } from "../../actions/GameDayAction";
+import { createAlert } from "../../util";
 
 class Friday extends Component {
   constructor(props) {
@@ -36,7 +37,13 @@ class Friday extends Component {
       res.push({
         time: this.props.gameday.time,
         title: this.props.games[i].name,
-        description: `Competição\t\tLocal: ${this.props.gameday.local}`
+        description: `Competição\t\tLocal: ${this.props.gameday.local}\n\nGratuito`,
+        onPress: () => createAlert(
+            "Inscrição", 
+            "Deseja abrir o formulário para inscrição?",
+            () => Linking.openURL(this.props.games[i].form),
+            () => false
+        )
       });
     }
 

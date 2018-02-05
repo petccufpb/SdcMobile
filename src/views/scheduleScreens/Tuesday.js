@@ -40,7 +40,7 @@ class Tuesday extends Component {
       res.push({
         time: this.props.labs[i].time,
         title: this.props.labs[i].title,
-        description: `${tipo}Local: ${this.props.labs[i].local}`
+        description: `${tipo}Local: ${this.props.labs[i].local}\n\nGratuito`
       });
     }
     return res;

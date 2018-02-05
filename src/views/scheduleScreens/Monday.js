@@ -46,7 +46,7 @@ class Monday extends Component {
       res.push({
         time: this.props.talks[i].time,
         title: this.props.talks[i].title,
-        description: `${tipo}Local: ${this.props.talks[i].local}`,
+        description: `${tipo}Local: ${this.props.talks[i].local}\n\nGratuito`,
         onPress: () => this.openModal(this.props.talks[i])
       });
     }

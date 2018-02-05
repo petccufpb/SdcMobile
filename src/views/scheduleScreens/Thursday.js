@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Alert, Text, Platform, View, StatusBar, StyleSheet, ActivityIndicator } from 'react-native';
+import { Linking, Alert, Text, Platform, View, StatusBar, StyleSheet, ActivityIndicator } from 'react-native';
 import Timeline from 'react-native-timeline-listview';
 import { getCourses } from '../../actions/CourseAction';
 
@@ -25,6 +25,10 @@ class Thursday extends Component {
     setTimeout(() => { this.setState({ renderTimeline: true }) }, 0);
   }
 
+  openModal(talk) {
+    this.props.navigation.navigate("scheduleModal", talk);
+  }
+
   dataToTimeline() {
     const res = [];
 
@@ -32,7 +36,8 @@ class Thursday extends Component {
       res.push({
         time: this.props.courses[i].time,
         title: this.props.courses[i].title,
-        description: `Minicurso\t\tLocal: ${this.props.courses[i].local}`
+        description: `Minicurso\t\tLocal: ${this.props.courses[i].local}\n\n* Inscrição presencial mediante a entrega de 1kg de alimento`,
+        onPress: () => this.openModal(this.props.courses[i])
       });
     }
 
