@@ -29,7 +29,7 @@ const INITIAL_STATE = {
   authUser: null
 };
 
-export default (state = INITIAL_STATE_DEV, action) => {
+export default (state = INITIAL_STATE, action) => {
 
   switch (action.type) {
     case CHANGE_NAME:
