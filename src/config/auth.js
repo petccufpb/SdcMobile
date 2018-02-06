@@ -4,7 +4,7 @@ const Facebook = {
     return new Promise((resolve, reject) => {
       FBLoginManager.loginWithPermissions(permissions || ['email'], (error, data) => {
         if (!error) {
-          resolve(data.credentials.token);
+          resolve(data);
         } else {
           reject(error);
         }

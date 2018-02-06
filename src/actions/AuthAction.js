@@ -16,7 +16,6 @@ import {
 } from './types';
 import { REF_DB_USERS } from './refDatabase';
 
-
 export const changeName = text => {
   return {
     type: CHANGE_NAME,
@@ -42,13 +41,20 @@ export const clearLoginError = () => ({ type: CLEAR_LOGIN_ERR });
 
 export const loginWithFacebook = () => {
   return dispatch => {
-    Auth.Facebook.login(['email'])
-      .then(token => {
-        firebase.auth().signInWithCredential(firebase.auth.FacebookAuthProvider.credential(token))
-        .then(() => dispatch(navToHome))
-        .catch(err => { dispatch({ type: LOGIN_ERR, payload: err.message })});
+    Auth.Facebook.login(['email', 'public_profile'])
+      .then(data => {
+        firebase.auth().signInWithCredential(firebase.auth.FacebookAuthProvider.credential(data.credentials.token))
+          .then((user) => {
+            const userId = firebase.auth().currentUser.uid;
+            userModel.uid = userId;
+
+            firebase.database().ref(REF_DB_USERS + userId).set(userModel)
+              .then(user =>  dispatch(navToHome))
+              .catch(err => dispatch({ type: LOGIN_ERR, payload: err.message }));
+          })
+          .catch(err => { dispatch({ type: LOGIN_ERR, payload: err.message }) });
       })
-      .catch(err => { dispatch({ type: LOGIN_ERR, payload: err.message })});
+      .catch(err => { dispatch({ type: LOGIN_ERR, payload: err.message }) });
   }
 };
 
